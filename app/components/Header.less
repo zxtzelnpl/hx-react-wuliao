@@ -1,0 +1,56 @@
+header{
+  @headerHeight:60px;
+  @itemHeight:36px;
+  box-sizing: border-box;
+  padding-top:(@headerHeight - @itemHeight)/2;
+  width:100%;
+  min-width:1280px;
+  height:@headerHeight;
+  background:#fff;
+  overflow: hidden;
+  .logo{
+    float:left;
+    padding-left:20px;
+  }
+  .login-state{
+    padding-right:20px;
+    float:right;
+
+  }
+  .login-btn{
+    float:right;
+    width:74px;
+    height:@itemHeight;
+    border-radius:5px;
+    text-align: center;
+    line-height:@itemHeight;
+    color:#fff;
+    background:#ff515d;
+  }
+  .location{
+    float:right;
+    margin-right:20px;
+    padding-left:10px;
+    box-sizing: border-box;
+    width:100px;
+    height:@itemHeight;
+    border:1px solid #e5e5e5;
+    line-height:@itemHeight;
+    border-radius:5px;
+  }
+  .favorite{
+    float:right;
+    margin-right:40px;
+    width:@itemHeight;
+    height:@itemHeight;
+  }
+  .save-to-desk{
+    float:right;
+    margin-right:40px;
+    width:@itemHeight;
+    height:@itemHeight;
+  }
+  img{
+    display:block;
+  }
+}

@@ -1,0 +1,28 @@
+.top-banner {
+  @btnLength:40px;
+  position: relative;
+  width: 1280px;
+  height: 240px;
+  .item {
+    width: 1280px;
+    height: 240px;
+  }
+  .prev {
+    position: absolute;
+    top: 50%;
+    left: 35px;
+    margin-top:-@btnLength/2;
+    width:@btnLength;
+    height:@btnLength;
+    cursor:pointer;
+  }
+  .next {
+    position: absolute;
+    top: 50%;
+    right: 35px;
+    margin-top:-@btnLength/2;
+    width:@btnLength;
+    height:@btnLength;
+    cursor:pointer;
+  }
+}

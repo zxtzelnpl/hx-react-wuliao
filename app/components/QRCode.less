@@ -1,0 +1,22 @@
+.QRCode {
+  @red: #ff515d;
+  @gray: #666;
+  @itemHeight:64px;
+  box-sizing: border-box;
+  padding-left:80px;
+  height: @itemHeight;
+  border:1px solid transparent;
+  width: 240px;
+  font-size:20px;
+  font-weight:bold;
+  color:@gray;
+  line-height:@itemHeight - 2px;
+  background: #fff url("../static/img/icon_home_qrc_g.png") 32px center no-repeat;
+  cursor:pointer;
+  &:hover {
+    border:1px solid @red;
+    line-height:@itemHeight - 2px;
+    color: @red;
+    background: #fff url("../static/img/icon_home_qrc_r.png") 32px center no-repeat;
+  }
+}
