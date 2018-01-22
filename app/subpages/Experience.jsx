@@ -1,26 +1,20 @@
 'use strict'
 
-import './Strategy.less'
+import './Experience.less'
 
 import React, {Component} from 'react'
 
 import Head from '../components/Head'
-import StrategyContentMorinig from '../components/strategy/StrategyContentMorinig'
-import StrategyContentNoon from '../components/strategy/StrategyContentNoon'
-import StrategyContentEvening from '../components/strategy/StrategyContentEvening'
 
-class Strategy extends Component {
-
+class Experience extends Component {
   constructor (props) {
     super(props)
     this.tabNames = [
-      '股票早评',
-      '盘中解读',
-      '股票收评']
+      '股票周报',
+      '股票年报',
+      '媒体视频']
     this.tabContents = [
-      <StrategyContentMorinig />,
-      <StrategyContentNoon />,
-      <StrategyContentEvening />
+
     ]
     this.state={
       selected:1
@@ -34,10 +28,8 @@ class Strategy extends Component {
   }
 
   render () {
-
-
     return (
-        <div className="container-strategy">
+        <div className="container-experience">
           <div className="blank-h-20"/>
           <Head
               tabNames={this.tabNames}
@@ -51,4 +43,4 @@ class Strategy extends Component {
   }
 }
 
-export default Strategy
+export default Experience
