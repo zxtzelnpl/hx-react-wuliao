@@ -3,9 +3,9 @@
 import './Main.less'
 
 import React, {Component} from 'react'
-import TopBanner from '../components/TopBanner'
-import MainNav from '../components/MainNav'
-import QRCode from '../components/QRCode'
+import TopBanner from '../components/main/TopBanner'
+import MainNav from '../components/main/MainNav'
+import QRCode from '../components/main/QRCode'
 
 class Main extends Component {
   render () {

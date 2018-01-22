@@ -2,8 +2,8 @@
 
 import './TopBanner.less'
 
-import prev from '../static/img/icon_home_benner_left.png'
-import next from '../static/img/icon_home_benner_right.png'
+import prev from '../../static/img/icon_home_benner_left.png'
+import next from '../../static/img/icon_home_benner_right.png'
 
 import React, {PureComponent} from 'react'
 import ReactSwipe from 'react-swipe'
