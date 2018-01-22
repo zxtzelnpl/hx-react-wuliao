@@ -5,6 +5,7 @@ import './App.less'
 import React from 'react'
 import {Route, Redirect, Link} from 'react-router-dom'
 import PopLogin from './containers/PopLogin'
+import PopBack from './containers/PopBack'
 import Test from './subpages/Test'
 import Main from './subpages/Main'
 import ReSearch from './subpages/ReSearch'
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/research" component={ReSearch}/>
         <Route path="/test" component={Test}/>
         <PopLogin />
+        <PopBack />
       </div>
   )
 }
