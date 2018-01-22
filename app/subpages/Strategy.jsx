@@ -5,6 +5,8 @@ import './Strategy.less'
 import React, {Component} from 'react'
 
 import Head from '../components/strategy/Head'
+import StrategyContent from '../components/strategy/StrategyContent'
+import Pages from '../components/Pages'
 
 class Strategy extends Component {
   render () {
@@ -12,7 +14,12 @@ class Strategy extends Component {
         <div className="container-strategy">
           <div className="blank-h-20" />
           <Head />
-          Component
+          <div className="blank-h-20" />
+          <div className="content">
+            <Pages selected={0}/>
+            <div className="blank-w-20" />
+            <StrategyContent />
+          </div>
         </div>
     )
   }

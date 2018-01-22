@@ -1,0 +1,51 @@
+@import '../consts.less';
+.zxt-pages{
+  .zxt-pages-list{
+    @itemH:50px;
+    li{
+      box-sizing: border-box;
+      padding-left:20px;
+      width:355px;
+      height:@itemH;
+      border-bottom:1px solid @gray;
+      line-height:@itemH - 1px;
+      color:#000;
+      background:#fff;
+      cursor:pointer;
+      &.on{
+        color:#fff;
+        background:@red;
+        border-color:@red;
+      }
+      &:hover{
+        color:#fff;
+        background:@red;
+        border-color:@red;
+      }
+    }
+  }
+  .zxt-pages-num{
+    p{
+      float:left;
+      box-sizing: border-box;
+      margin-right:9px;
+      width:36px;
+      height:36px;
+      border:1px solid @gray;
+      line-height:34px;
+      text-align: center;
+      color:#999999;
+      background:#fff;
+      cursor:pointer;
+      &:hover,&.on{
+        color:#fff;
+        background:@red;
+        border-color:@red;
+      }
+      &:last-child{
+        float:right;
+        margin-right:0;
+      }
+    }
+  }
+}
