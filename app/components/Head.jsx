@@ -4,8 +4,8 @@ import './Head.less'
 
 import React, {Component} from 'react'
 
-import Tabs from '../Tabs'
-import Risk from '../Risk'
+import Tabs from './Tabs'
+import Risk from './Risk'
 
 class Head extends Component {
   render () {

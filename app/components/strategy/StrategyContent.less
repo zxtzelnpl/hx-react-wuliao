@@ -1,32 +1,39 @@
 @import '../../consts.less';
 .strategy-content{
-  box-sizing: border-box;
-  width:905px;
-  padding-left:30px;
-  background:#fff;
-  .strategy-content-head{
-    box-sizing: border-box;
-    height:80px;
-    padding-right:30px;
-    line-height:79px;
-    border-bottom:1px solid @gray;
-    font-size:24px;
-    font-weight:bold;
-    span {
-      float: right;
-      margin-top:20px;
-      width: 80px;
-      height: 40px;
-      line-height: 40px;
-      font-size:16px;
-      font-weight:bold;
-      text-align: center;
-      color: #fff;
-      background: @red;
-      cursor:pointer;
-    }
+  overflow: hidden;
+  padding-bottom: 20px;
+  >div{
+    float:left;
   }
-  .strategy-content-in{
-    padding: 30px 30px 30px 0;
+  .content{
+    box-sizing: border-box;
+    width:905px;
+    padding-left:30px;
+    background:#fff;
+    .strategy-content-head{
+      box-sizing: border-box;
+      height:80px;
+      padding-right:30px;
+      line-height:79px;
+      border-bottom:1px solid @gray;
+      font-size:24px;
+      font-weight:bold;
+      span {
+        float: right;
+        margin-top:20px;
+        width: 80px;
+        height: 40px;
+        line-height: 40px;
+        font-size:16px;
+        font-weight:bold;
+        text-align: center;
+        color: #fff;
+        background: @red;
+        cursor:pointer;
+      }
+    }
+    .strategy-content-in{
+      padding: 30px 30px 30px 0;
+    }
   }
 }

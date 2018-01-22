@@ -4,7 +4,7 @@ import './Strategy.less'
 
 import React, {Component} from 'react'
 
-import Head from '../components/strategy/Head'
+import Head from '../components/Head'
 import StrategyContentMorinig from '../components/strategy/StrategyContentMorinig'
 import StrategyContentNoon from '../components/strategy/StrategyContentNoon'
 import StrategyContentEvening from '../components/strategy/StrategyContentEvening'
@@ -46,11 +46,7 @@ class Strategy extends Component {
               selected = {this.state.selected}
           />
           <div className="blank-h-20"/>
-          <div className="content">
-            <Pages selected={0}/>
-            <div className="blank-w-20"/>
-            {this.tabContents[this.state.selected]}
-          </div>
+          {this.tabContents[this.state.selected]}
         </div>
     )
   }
