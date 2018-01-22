@@ -42,9 +42,7 @@ class Marketing extends Component {
               selected = {this.state.selected}
           />
           <div className="blank-h-20" />
-          <div className="content">
-            {this.tabContents[this.state.selected]}
-          </div>
+          {this.tabContents[this.state.selected]}
         </div>
     )
   }
