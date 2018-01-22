@@ -10,16 +10,18 @@ import Test from './subpages/Test'
 import Main from './subpages/Main'
 import ReSearch from './subpages/ReSearch'
 import Strategy from './subpages/Strategy'
+import Marketing from './subpages/Marketing'
 import Header from './containers/Header'
 
 const App = () => {
   return (
       <div className="container">
         <Header />
-        <Route exact path="/" render={() => (<Redirect to="/strategy"/>)}/>
+        <Route exact path="/" render={() => (<Redirect to="/marketing"/>)}/>
         <Route path="/main" component={Main}/>
         <Route path="/research" component={ReSearch}/>
         <Route path="/strategy" component={Strategy}/>
+        <Route path="/marketing" component={Marketing}/>
         <Route path="/test" component={Test}/>
         <PopLogin />
         <PopBack />
