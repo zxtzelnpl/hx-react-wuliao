@@ -1,3 +1,22 @@
+@import '../consts.less';
 .zxt-tabs{
-
+  width:980px;
+  height:64px;
+  background:#fff;
+  .zxt-tabs-item{
+    float:left;
+    margin:0 50px;
+    padding:0 5px;
+    height:60px;
+    line-height:60px;
+    font-size:20px;
+    color:#b0b0b0;
+    border-bottom:4px solid transparent;
+    cursor:pointer;
+    &.on{
+      font-weight:bold;
+      color:@red;
+      border-color:@red;
+    }
+  }
 }

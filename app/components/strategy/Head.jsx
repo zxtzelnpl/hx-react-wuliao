@@ -1,0 +1,38 @@
+'use strict'
+
+import './Head.less'
+
+import React, {Component} from 'react'
+
+import Tabs from '../Tabs'
+import Risk from '../Risk'
+
+class Head extends Component {
+  constructor (props){
+    super(props)
+    this.datas=[
+        '股票早评',
+        '盘中解读',
+        '股票收评'
+    ]
+  }
+
+  onChange(item){
+    console.log(item)
+  }
+
+  render () {
+    return (
+        <div className="strategy-head">
+          <Tabs
+            datas={this.datas}
+            selected={0}
+            onChange={this.onChange.bind(this)}
+          />
+          <Risk />
+        </div>
+    )
+  }
+}
+
+export default Head
