@@ -1,0 +1,24 @@
+.risk{
+  @red:#ff515d;
+  @height:64px;
+  @itemH:36px;
+  box-sizing: border-box;
+  padding-left:20px;
+  padding-top:(@height - @itemH)/2;
+  width:280px;
+  height:@height;
+  background:#fff;
+  img{
+    float:left;
+    margin-right:20px;
+    width:@itemH;
+    height:@itemH;
+  }
+  p{
+    float:left;
+    height:@itemH;
+    line-height:@itemH;
+    color:@red;
+    font-size:16px;
+  }
+}

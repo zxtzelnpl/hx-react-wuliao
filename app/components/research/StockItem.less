@@ -1,0 +1,34 @@
+.container-research{
+  .stock-item{
+    @red:#ff515d;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    padding-left:20px;
+    width:100%;
+    background:#fff;
+    .title{
+      height:60px;
+      font-size:18px;
+      line-height:60px;
+      font-weight:bold;
+      background:url(../../static/img/icon_other_down.png) center right no-repeat;
+      cursor:pointer;
+      span{
+        color:@red;
+      }
+    }
+    .content{
+      display:none;
+      max-height:580px;
+      border-top:1px solid #e6e6e6;
+    }
+  }
+  .stock-item.on{
+    .title{
+      background:url(../../static/img/icon_other_up.png) center right no-repeat;
+    }
+    .content{
+      display:block;
+    }
+  }
+}

@@ -1,56 +1,66 @@
-header{
-  @headerHeight:60px;
-  @itemHeight:36px;
+header {
+  @headerHeight: 60px;
+  @itemHeight: 36px;
   box-sizing: border-box;
-  padding-top:(@headerHeight - @itemHeight)/2;
-  width:100%;
-  min-width:1280px;
-  height:@headerHeight;
-  background:#fff;
-  overflow: hidden;
-  .logo{
-    float:left;
-    padding-left:20px;
+  padding-top: (@headerHeight - @itemHeight)/2;
+  width: 100%;
+  min-width: 1280px;
+  height: @headerHeight;
+  background: #fff;
+  .logo {
+    float: left;
+    padding-left: 20px;
   }
-  .login-state{
-    padding-right:20px;
-    float:right;
+  .login-state {
+    padding-right: 20px;
+    float: right;
 
   }
-  .login-btn{
-    float:right;
-    width:74px;
-    height:@itemHeight;
-    border-radius:5px;
+  .login-btn {
+    float: right;
+    width: 74px;
+    height: @itemHeight;
+    border-radius: 5px;
     text-align: center;
-    line-height:@itemHeight;
-    color:#fff;
-    background:#ff515d;
+    line-height: @itemHeight;
+    color: #fff;
+    background: #ff515d;
+    cursor:pointer;
   }
-  .location{
-    float:right;
-    margin-right:20px;
-    padding-left:10px;
-    box-sizing: border-box;
-    width:100px;
-    height:@itemHeight;
-    border:1px solid #e5e5e5;
-    line-height:@itemHeight;
-    border-radius:5px;
+  .location {
+    float: right;
+    margin-right: 20px;
+    width: 100px;
+    height: @itemHeight;
+    .zxt-selection {
+      box-sizing: border-box;
+      width: 100px;
+      border: 1px solid #e5e5e5;
+      line-height: @itemHeight - 2px;
+      border-radius: 5px;
+    }
+    .zxt-selection-selected {
+      padding-left: 10px;
+    }
+    .zxt-selection-item {
+      padding-left: 10px;
+    }
   }
-  .favorite{
-    float:right;
-    margin-right:40px;
-    width:@itemHeight;
-    height:@itemHeight;
+  .favorite {
+    float: right;
+    margin-right: 40px;
+    width: @itemHeight;
+    height: @itemHeight;
+    cursor: pointer;
   }
-  .save-to-desk{
-    float:right;
-    margin-right:40px;
-    width:@itemHeight;
-    height:@itemHeight;
+  .save-to-desk {
+    float: right;
+    margin-right: 40px;
+    width: @itemHeight;
+    height: @itemHeight;
+    cursor: pointer;
   }
-  img{
-    display:block;
+  img {
+    display: block;
   }
 }
