@@ -12,17 +12,23 @@ import App from './App'
 import LoadingPage from './subpages/LoadingPage'
 import ErrorPage from './subpages/ErrorPage'
 
+const root = document.getElementById('root')
+
 if (typeof __DEV__ !== 'undefined' && __DEV__) {
   console.info('"__DEV__=' + __DEV__ + '",这里是测试环境')
   myStorage.clear('user')
 }
 
-
-let store = configureStore()
-render(
-    <Provider store={store}>
-      <Router>
-        <App/>
-      </Router>
-    </Provider>
-    , document.getElementById('root'))
+try{
+  let store = configureStore()
+  render(
+      <Provider store={store}>
+        <Router>
+          <App/>
+        </Router>
+      </Provider>
+      ,root)
+}
+catch(err){
+  render(<ErrorPage err={err}/>,root)
+}
