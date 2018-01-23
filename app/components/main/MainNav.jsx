@@ -12,7 +12,7 @@ class MainNav extends Component {
         <div className="main-nav">
           <ul>
             <li>
-              <Link to="/test"><div className="nav-item live-video">视频直播</div></Link>
+              <Link to="/livevideo"><div className="nav-item live-video">视频直播</div></Link>
             </li>
             <li>
               <Link to="/research"><div className="nav-item research">研究素材</div></Link>

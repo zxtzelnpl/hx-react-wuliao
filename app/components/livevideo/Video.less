@@ -1,0 +1,41 @@
+@keyframes scrollTextV {
+  0%{
+    transform:translateX(0);
+  }
+  100%{
+    transform:translateX(-100%);
+  }
+}
+.video-box{
+  position:relative;
+  @boxW:900px;
+  @boxH:650px;
+  @noticeH:36px;
+  @paddingHead:50px;
+  width:@boxW;
+  height:@boxH;
+  .notice{
+    box-sizing: border-box;
+    padding-left:@paddingHead;
+    height:@noticeH;
+    color:#fff;
+    background:#000 url(../../static/img/icon_home_notice.png) 10px center no-repeat;
+
+    .notice-wrap{
+      width:@boxW - @paddingHead;
+      height:@noticeH;
+      overflow: hidden;
+    }
+    .text{
+      width:(@boxW - @paddingHead) * 2;
+      height:@noticeH;
+      line-height:@noticeH;
+      white-space:nowrap;
+      animation:scrollTextV 15s infinite linear;
+    }
+  }
+  .gensee-video{
+    width:@boxW;
+    height:@boxH - @noticeH;
+  }
+}
