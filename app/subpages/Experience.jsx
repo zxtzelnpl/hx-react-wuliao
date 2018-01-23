@@ -5,6 +5,9 @@ import './Experience.less'
 import React, {Component} from 'react'
 
 import Head from '../components/Head'
+import MediaVideo from '../components/experience/MediaVideo'
+import StockReportAnnual from '../components/experience/StockReportAnnual'
+import StockReportByWeek from '../components/experience/StockReportByWeek'
 
 class Experience extends Component {
   constructor (props) {
@@ -14,7 +17,9 @@ class Experience extends Component {
       '股票年报',
       '媒体视频']
     this.tabContents = [
-
+      <StockReportByWeek />,
+      <StockReportAnnual />,
+      <MediaVideo />
     ]
     this.state={
       selected:1
