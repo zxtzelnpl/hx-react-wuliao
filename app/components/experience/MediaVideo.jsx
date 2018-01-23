@@ -3,6 +3,7 @@
 import './MediaVideo.less'
 
 import React, {Component} from 'react'
+import right_arrow from '../../static/img/icon_other_right.png'
 
 let datas = []
 for (let i = 0; i < 18; i++) {
@@ -11,13 +12,12 @@ for (let i = 0; i < 18; i++) {
 
 class MediaVideo extends Component {
   render () {
-
     let lists = datas.map((data, index) => {
       let className='';
       if(index === this.props.selected){
         className='on'
       }
-      return <li className={className} key={index}>{data}</li>
+      return <li className={className} key={index}>{data}<img src={right_arrow}/></li>
     })
     return (
         <div className="experience-media-video">

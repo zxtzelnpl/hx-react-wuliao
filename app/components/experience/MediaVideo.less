@@ -8,23 +8,26 @@
     li{
       box-sizing: border-box;
       float:left;
-      padding-left:20px;
+      padding-left:60px;
       width:(@pageWidth - @gap)/2;
       height:@itemH;
       border-bottom:1px solid @gray;
       line-height:@itemH - 1px;
       color:#000;
-      background:#fff;
       cursor:pointer;
-      &.on{
-        color:#fff;
-        background:@red;
-        border-color:@red;
+      background:#fff url(../../static/img/icon_other_viedio.png) 20px center no-repeat;
+      img{
+        float:right;
+        margin-top:7px;
+        margin-right:10px;
       }
-      &:hover{
+      &.on,&:hover{
         color:#fff;
         background:@red;
         border-color:@red;
+        img{
+          visibility: hidden;
+        }
       }
     }
   }
