@@ -15,19 +15,19 @@ class MainNav extends Component {
               <Link to="/test"><div className="nav-item live-video">视频直播</div></Link>
             </li>
             <li>
-              <Link to="/test"><div className="nav-item research">研究素材</div></Link>
+              <Link to="/research"><div className="nav-item research">研究素材</div></Link>
             </li>
             <li>
-              <Link to="/test"><div className="nav-item strategy">策略素材</div></Link>
+              <Link to="/strategy"><div className="nav-item strategy">策略素材</div></Link>
             </li>
             <li>
-              <Link to="/test"><div className="nav-item marketing">营销素材</div></Link>
+              <Link to="/marketing"><div className="nav-item marketing">营销素材</div></Link>
             </li>
             <li>
-              <Link to="/test"><div className="nav-item experience">体验素材</div></Link>
+              <Link to="/experience"><div className="nav-item experience">体验素材</div></Link>
             </li>
             <li>
-              <Link to="/test"><div className="nav-item customer-service">客服素材</div></Link>
+              <Link to="/customerservice"><div className="nav-item customer-service">客服素材</div></Link>
             </li>
             <li>
               <Link to="/test"><div className="nav-item playback">回播</div></Link>

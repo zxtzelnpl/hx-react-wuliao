@@ -1,0 +1,64 @@
+@import '../../consts.less';
+
+.customer-stock-analyze {
+  overflow: hidden;
+  > div {
+    float: left;
+  }
+  .stock-analyze-content {
+    .stock-analyze-content-title {
+      height:64px;
+      p {
+        box-sizing: border-box;
+        float: left;
+        padding-left: 85px;
+        width: 755px;
+        height: 64px;
+        line-height: 64px;
+        background: #fff url(../../static/img/icon_other_p.png) left center no-repeat;
+      }
+      span {
+        margin-left: 20px;
+        float: left;
+        width: 130px;
+        height: 64px;
+        font-size: 14px;
+        text-align: center;
+        line-height: 64px;
+        background: @red;
+        color: #fff;
+      }
+    }
+    .stock-analyze-content-body {
+      box-sizing: border-box;
+      padding: 20px 0 0 40px;
+      width:905px;
+      background:#fff;
+      .head{
+        box-sizing: border-box;
+        height:80px;
+        padding-right:30px;
+        line-height:79px;
+        border-bottom:1px solid @gray;
+        font-size:24px;
+        font-weight:bold;
+        span {
+          float: right;
+          margin-top:20px;
+          width: 80px;
+          height: 40px;
+          line-height: 40px;
+          font-size:16px;
+          font-weight:bold;
+          text-align: center;
+          color: #fff;
+          background: @red;
+          cursor:pointer;
+        }
+      }
+      .in{
+        padding: 30px 30px 30px 0;
+      }
+    }
+  }
+}
