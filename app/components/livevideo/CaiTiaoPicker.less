@@ -1,0 +1,22 @@
+@import '../../consts.less';
+.caitiao-pikcer{
+  box-sizing: border-box;
+  padding:4px 9px;
+  width:340px;
+  height:310px;
+  border:1px solid @gray;
+  border-radius:5px;
+  overflow: hidden;
+  background:#fff;
+  img{
+    float:left;
+    display:block;
+    cursor:pointer;
+    &:nth-child(3n+1){
+      margin-right:5px;
+    }
+    &:nth-child(3n+2){
+      margin-right:5px;
+    }
+  }
+}

@@ -1,0 +1,123 @@
+@import "../../consts.less";
+.chat-box{
+  width:360px;
+  .messages-wrap{
+    height:650px;
+    background:#fff;
+  }
+  .messages{
+  }
+  .messageItem{
+    padding-top:20px;
+    padding-left:20px;
+    .head{
+      height:40px;
+      img{
+        float:left;
+      }
+      .name{
+        float:left;
+        padding-left:10px;
+        height:40px;
+        line-height:40px;
+      }
+      .time{
+        float:right;
+        padding-right:20px;
+        height:40px;
+        line-height:40px;
+        font-size:12px;
+        color:#a1a1a1;
+      }
+    }
+    .content{
+      margin-left:40px;
+      padding:5px 20px 10px 10px;
+      border-bottom:1px solid @gray;
+    }
+  }
+}
+.chat-wrap{
+  position:relative;
+  box-sizing: border-box;
+  padding:5px 10px;
+  width:360px;
+  height:180px;
+  background:#fff;
+  .chat{
+    box-sizing: border-box;
+    width:340px;
+    height:170px;
+    border:1px solid #d9d9d9;
+    border-radius:5px;
+    .input-box{
+      box-sizing: border-box;
+      outline:none;
+      padding:10px;
+      width:338px;
+      height:129px;
+      line-height:30px;
+      img{
+        vertical-align: middle;
+      }
+    }
+    .toolbar{
+      box-sizing: border-box;
+      padding-top:1px;
+      width:338px;
+      height:39px;
+      background:#f2f2f2;
+      .emoji{
+        float:left;
+        width:40px;
+        height:38px;
+        background:url(../../static/img/icon_input_ep.png) center center no-repeat;
+        cursor:pointer;
+      }
+      .caitiao{
+        float:left;
+        width:40px;
+        height:38px;
+        background:url(../../static/img/icon_input_ct.png) center center no-repeat;
+        cursor:pointer;
+      }
+      .pic{
+        float:left;
+        width:40px;
+        height:38px;
+        label{
+          display:block;
+          width:40px;
+          height:38px;
+          background:url(../../static/img/icon_input_photo.png) center center no-repeat;
+          cursor:pointer;
+        }
+        input{
+          visibility: hidden;
+        }
+      }
+      .send-btn{
+        float:right;
+        margin-top:5px;
+        margin-right:10px;
+        width:64px;
+        height:28px;
+        line-height:28px;
+        color:#fff;
+        background:@red;
+        text-align: center;
+        cursor:pointer;
+      }
+    }
+  }
+  .emoji-picker{
+    position:absolute;
+    bottom:45px;
+    left:10px;
+  }
+  .caitiao-pikcer{
+    position:absolute;
+    bottom:45px;
+    left:10px;
+  }
+}
