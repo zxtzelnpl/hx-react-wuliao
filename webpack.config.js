@@ -66,13 +66,14 @@ module.exports = {
 
   devServer: {
     proxy: {
-      '/api': {
-        target: 'http://106.14.21.199:8013',
-        secure: false
+      '/upload/*':{
+        target: 'http://pxzbs.jyzqsz.com',
+        changeOrigin: true
       }
     },
     contentBase: './build',//本地服务器所加载的页面所在的目录
     inline: true,//实时刷新
-    hot: true//使用热加载插件 HotModuleReplacementPlugin
+    hot: true,//使用热加载插件 HotModuleReplacementPlugin
+    noInfo: false
   }
 }

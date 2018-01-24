@@ -156,8 +156,27 @@ class ChatBox extends Component {
   }
 
   fileChange(e){
-    console.log('fileChange')
-    console.log(e)
+    // console.log(e.target.files)
+    // console.log(e.target.files[0])
+    // let url = '/upload/img'
+    //     ,data1 = e.target.files[0]
+    //
+    //     ,data2 = this.form[0]
+    //     ,formData = new FormData()
+    // formData.append('file',data1)
+    // console.log(data2)
+    // fetch(url,{
+    //   method:'POST',
+    //   headers:{
+    //     'Content-Type': false,
+    //     'Cache-Control':'no-cache'
+    //   },
+    //   'body':formData
+    // })
+    //     .then(res=>res.json())
+    //     .then(json=>{
+    //       console.log(json)
+    //     })
   }
 
   render () {
@@ -184,12 +203,15 @@ class ChatBox extends Component {
               <div className="toolbar">
                 <div className="emoji" onClick={this.pickerShow.bind(this,'emoji')} />
                 <div className="caitiao" onClick={this.pickerShow.bind(this,'caitiao')} />
-                <div className="pic"><label><input type="file" onChange={this.fileChange.bind(this)}/></label></div>
+                <div className="pic"><label htmlFor='img_upload'/></div>
                 <div className="send-btn" onClick={this.sendMessage.bind(this)}>
                   发送
                 </div>
               </div>
             </div>
+            <form className="img-upload" ref={form=>{this.form=form}}>
+              <input id={'img_upload'} type="file" onChange={this.fileChange.bind(this)}/>
+            </form>
             {this.state.picker==='emoji'&&<EmojiPicker onClick={this.addEmoji.bind(this)}/>}
             {this.state.picker==='caitiao'&&<CaiTiaoPicker onClick={this.sendCaitiao.bind(this)} />}
           </div>
