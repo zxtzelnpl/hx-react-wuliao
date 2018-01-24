@@ -22,7 +22,7 @@ const App = () => {
       <div className="container">
         <Header />
         {/*<Route exact path="/" render={() => (<Redirect to="/main"/>)}/>*/}
-        <Route path="/" component={Main}/>
+        <Route path="/" exact component={Main}/>
         <Route path="/livevideo" component={LiveVideo}/>
         <Route path="/research" component={ReSearch}/>
         <Route path="/strategy" component={Strategy}/>

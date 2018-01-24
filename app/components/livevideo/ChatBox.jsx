@@ -9,6 +9,7 @@ import React, {Component} from 'react'
 import JRoll from 'jroll'
 import EmojiPicker from './EmojiPicker'
 import CaiTiaoPicker from './CaiTiaoPicker'
+import {upload_img} from '../../config/urls'
 
 const message_datas = [
   {
@@ -104,11 +105,11 @@ const MessageItem = ({name, time, content}) => {
 }
 
 class ChatBox extends Component {
-  constructor (props){
+  constructor (props) {
     super(props)
-    this.state={
-      __html:'请输入你想说的话',
-      picker:''
+    this.state = {
+      __html: '请输入你想说的话',
+      picker: ''
     }
   }
 
@@ -116,67 +117,58 @@ class ChatBox extends Component {
   componentDidMount () {
     let init = {
       scrollBarY: true,
-      scrollBarFade:true
+      scrollBarFade: true
     }
     this.jroll = new JRoll('#message', init)
   }
 
-  keyUp(e){
-    if(e.keyCode === 13){
+  keyUp (e) {
+    if (e.keyCode === 13) {
       this.sendMessage()
     }
   }
 
-  sendMessage(){
+  sendMessage () {
     console.log(this.input.innerHTML)
   }
 
-  pickerShow(picker){
-    this.setState((state)=>{
+  pickerShow (picker) {
+    this.setState((state) => {
       let prePicker = state.picker
       let nextPicker = ''
-      if(picker !== prePicker){
+      if (picker !== prePicker) {
         nextPicker = picker
       }
       return {
-        picker:nextPicker
+        picker: nextPicker
       }
     })
   }
 
-  addEmoji(e){
+  addEmoji (e) {
     let htmlStr = this.input.innerHTML
     let url = e.target.src
-    htmlStr+=`<img src=${url} />`
+    htmlStr += `<img src=${url} />`
     this.input.innerHTML = htmlStr
   }
 
-  sendCaitiao(){
+  sendCaitiao () {
 
   }
 
-  fileChange(e){
-    // console.log(e.target.files)
-    // console.log(e.target.files[0])
-    // let url = '/upload/img'
-    //     ,data1 = e.target.files[0]
-    //
-    //     ,data2 = this.form[0]
-    //     ,formData = new FormData()
-    // formData.append('file',data1)
-    // console.log(data2)
-    // fetch(url,{
-    //   method:'POST',
-    //   headers:{
-    //     'Content-Type': false,
-    //     'Cache-Control':'no-cache'
-    //   },
-    //   'body':formData
-    // })
-    //     .then(res=>res.json())
-    //     .then(json=>{
-    //       console.log(json)
-    //     })
+  fileChange (e) {
+    let img = e.target.files[0]
+        , formData = new FormData()
+    formData.append('upload_img', img)
+    fetch(upload_img, {
+      method: 'POST',
+      credentials: 'include',
+      body: formData
+    })
+        .then(res => res.json())
+        .then(json => {
+          console.log(json)
+        })
   }
 
   render () {
@@ -196,24 +188,25 @@ class ChatBox extends Component {
               <div
                   className="input-box"
                   contentEditable={true}
-                  dangerouslySetInnerHTML={{__html:this.state.__html}}
-                  ref={input=>{this.input=input}}
+                  dangerouslySetInnerHTML={{__html: this.state.__html}}
+                  ref={input => {
+                    this.input = input
+                  }}
                   onKeyUp={this.keyUp.bind(this)}
               />
               <div className="toolbar">
-                <div className="emoji" onClick={this.pickerShow.bind(this,'emoji')} />
-                <div className="caitiao" onClick={this.pickerShow.bind(this,'caitiao')} />
-                <div className="pic"><label htmlFor='img_upload'/></div>
+                <div className="emoji" onClick={this.pickerShow.bind(this, 'emoji')}/>
+                <div className="caitiao" onClick={this.pickerShow.bind(this, 'caitiao')}/>
+                <div className="pic"><label><input
+                    type="file"
+                    onChange={this.fileChange.bind(this)}/></label></div>
                 <div className="send-btn" onClick={this.sendMessage.bind(this)}>
                   发送
                 </div>
               </div>
             </div>
-            <form className="img-upload" ref={form=>{this.form=form}}>
-              <input id={'img_upload'} type="file" onChange={this.fileChange.bind(this)}/>
-            </form>
-            {this.state.picker==='emoji'&&<EmojiPicker onClick={this.addEmoji.bind(this)}/>}
-            {this.state.picker==='caitiao'&&<CaiTiaoPicker onClick={this.sendCaitiao.bind(this)} />}
+            {this.state.picker === 'emoji' && <EmojiPicker onClick={this.addEmoji.bind(this)}/>}
+            {this.state.picker === 'caitiao' && <CaiTiaoPicker onClick={this.sendCaitiao.bind(this)}/>}
           </div>
         </div>
     )

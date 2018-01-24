@@ -65,12 +65,13 @@ module.exports = {
   ],
 
   devServer: {
-    proxy: {
-      '/upload/*':{
+    proxy: [
+      {
+        context: ['/upload/*', '/outerapi/*','/captcha/*','/outerapi/*'],
         target: 'http://pxzbs.jyzqsz.com',
         changeOrigin: true
       }
-    },
+    ],
     contentBase: './build',//本地服务器所加载的页面所在的目录
     inline: true,//实时刷新
     hot: true,//使用热加载插件 HotModuleReplacementPlugin

@@ -4,10 +4,10 @@ import './PopLogin.less'
 
 import logo from '../static/img/icon_noli_logo_r.png'
 import close from '../static/img/icon_login_off.png'
-import test from '../test/code.jpg'
 
 import React, {Component} from 'react'
 
+import {get_code,pre_code} from '../config/urls'
 import {trim, phoneCheck} from "../static/tools";
 
 class PopLogin extends Component {
@@ -17,7 +17,8 @@ class PopLogin extends Component {
       choice: '',
       phone: '',
       password: '',
-      code: ''
+      code: '',
+      code_img_url:''
     }
   }
 
@@ -60,8 +61,20 @@ class PopLogin extends Component {
     this.props.viewsActions.pop_login(false)
   }
 
-  ChangeCode(){
+  getCode(){
     console.log('changeCode')
+    fetch(get_code,{
+      method:'POST'
+    })
+        .then(res=>res.json())
+        .then(text=>{
+          console.log(text)
+          let code_img_url=pre_code+text
+          console.log(code_img_url)
+          this.setState({
+            code_img_url:code_img_url
+          })
+        })
   }
 
   render () {
@@ -107,8 +120,8 @@ class PopLogin extends Component {
                  onChange={this.onChangeCode.bind(this)}
           />
           <img
-              onClick={this.ChangeCode.bind(this)}
-              src={test} alt=""
+              onClick={this.getCode.bind(this)}
+              src={this.state.code_img_url} alt=""
           />
         </div>
         <div className="blank-h-40"/>
