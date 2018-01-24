@@ -21,6 +21,14 @@ class Header extends Component {
     console.log(item)
   }
 
+  saveToBrowser(){
+    alert('alert(Ctrl+D收藏直播室)')
+  }
+
+  saveToDesk(){
+
+  }
+
   render () {
     return (
         <header>
@@ -40,7 +48,7 @@ class Header extends Component {
                     onSelect={this.onLocationSelect.bind(this)}
                 />
               </div>
-              <div className="favorite">
+              <div className="favorite" onClick={this.saveToBrowser}>
                 <img src={favorite} alt=""/>
               </div>
               <div className="save-to-desk">

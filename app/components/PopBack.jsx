@@ -9,6 +9,10 @@ import icon_noli_pff from '../static/img/icon_noli_pff.png'
 import React, {Component} from 'react'
 
 class PopBack extends Component {
+  constructor (){
+    super()
+    this.onClose=this.onClose.bind(this)
+  }
 
   onClose () {
     this.props.viewsActions.pop_back(false)
@@ -29,10 +33,12 @@ class PopBack extends Component {
             </div>
           </div>
           <div className="down">
-
+            <span className="btn-yes" onClick={this.onClose}>
+              确定
+            </span>
           </div>
         </div>
-        <div className="close" onClick={this.onClose.bind(this)}>
+        <div className="close" onClick={this.onClose}>
           <img src={icon_noli_pff} alt=""/>
         </div>
       </div>

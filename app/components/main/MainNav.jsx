@@ -30,7 +30,7 @@ class MainNav extends Component {
               <Link to="/customerservice"><div className="nav-item customer-service">客服素材</div></Link>
             </li>
             <li>
-              <Link to="/test"><div className="nav-item playback">回播</div></Link>
+              <Link to="/playback"><div className="nav-item playback">回播</div></Link>
             </li>
           </ul>
         </div>
