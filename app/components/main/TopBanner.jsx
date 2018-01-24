@@ -32,9 +32,9 @@ class TopBanner extends PureComponent {
                       }}
                       ref={swipe=>{this.swipe = swipe}}
           >
-            <div className="item">PANE 1</div>
-            <div className="item">PANE 2</div>
-            <div className="item">PANE 3</div>
+            <div className="item">PANE 1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A consequuntur, doloribus ex itaque iusto pariatur provident quas quidem quis ratione repudiandae similique suscipit veniam? Consequuntur necessitatibus nemo praesentium quis sunt?</div>
+            <div className="item">PANE 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto asperiores, at dolorum, fugiat fugit ipsam itaque magni minus non obcaecati odit officia sequi sunt tempora tempore unde vitae voluptatem?</div>
+            <div className="item">PANE 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam animi aperiam at aut debitis distinctio, eaque, illo illum impedit libero provident qui suscipit vero voluptas? Dolores odio quisquam vero.</div>
           </ReactSwipe>
           <div className="prev" onClick={this.prev.bind(this)}>
             <img src={prev} alt=""/>
