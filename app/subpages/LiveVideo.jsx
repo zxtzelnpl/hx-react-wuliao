@@ -6,7 +6,7 @@ import React, {Component} from 'react'
 import Head from '../components/livevideo/Head'
 import Video from '../components/livevideo/Video'
 import VideoBottomSwipe from '../components/livevideo/VideoBottomSwipe'
-import ChatBox from '../components/livevideo/ChatBox'
+import ChatBox from '../containers/ChatBox'
 
 class LiveVideo extends Component {
   render () {

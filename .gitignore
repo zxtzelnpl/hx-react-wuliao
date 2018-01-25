@@ -2,7 +2,6 @@
 node_modules/
 .idea/
 build/
-config/
 test/
 *.rar
 others/*.css

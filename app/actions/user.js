@@ -1,3 +1,5 @@
+'use strict'
+
 import * as actionTypes from '../constants/user'
 import {user_login,user_logout} from '../config/urls'
 
@@ -40,16 +42,16 @@ const shouldFetchPosts = (state) => {
   return !state.user.isFetching;
 }
 
-export const location_change = value =>({
-  type: actionTypes.USER_LOCATION_CHANGE,
-  location:value
-})
-
 export const fetchPostsIfNeeded = value => (dispatch, getState) => {
   if (shouldFetchPosts(getState())) {
     return dispatch(fetchPosts(value))
   }
 }
+
+export const location_change = value =>({
+  type: actionTypes.USER_LOCATION_CHANGE,
+  location:value
+})
 
 export const logout = ()=>({
   type: actionTypes.USER_LOGOUT
