@@ -87,8 +87,9 @@ const shouldFetchRedis = (state) => {
   return !state.chat.isFetchingRedis;
 }
 export const fetchRedisIfNeeded = value => (dispatch, getState) => {
+  let state = getState()
   if (shouldFetchRedis(getState())) {
-    return dispatch(fetchRedis(value))
+    return dispatch(fetchRedis(state.chat.score))
   }
 }
 

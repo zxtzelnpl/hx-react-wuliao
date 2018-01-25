@@ -32,6 +32,7 @@ class ChatBox extends Component {
     super(props)
     this.jroll=null
     this.load_time_control = null
+    this.round_time_control = null
     this.moveDirection = ''
     this.state = {
       redis:[],
@@ -102,13 +103,7 @@ class ChatBox extends Component {
           that.props.chatActions.fetchMessageIfNeeded()
         },300)
       }
-
-
     })
-  }
-
-  loadMessage(){
-
   }
 
   componentDidUpdate(){
@@ -125,8 +120,14 @@ class ChatBox extends Component {
     else{
       this.jroll.scrollTo(0,this.jroll.maxScrollY,300)
     }
+    this.roundRedis()
     this.moveDirection = ''
+  }
 
+  componentWillUnmount(){
+    this.jroll.destroy()
+    clearTimeout(this.load_time_control)
+    clearTimeout(this.round_time_control)
   }
 
   keyUp (e) {
@@ -150,6 +151,11 @@ class ChatBox extends Component {
       content,
       time
     })
+  }
+  roundRedis(){
+    this.round_time_control = setInterval(
+        this.props.chatActions.fetchRedisIfNeeded,3000
+    )
   }
 
   /**彩条面板和emoji面板交换显示**/
