@@ -9,7 +9,7 @@ import React, {Component} from 'react'
 import JRoll from 'jroll'
 import EmojiPicker from './EmojiPicker'
 import CaiTiaoPicker from './CaiTiaoPicker'
-import {upload_img} from '../../config/urls'
+import {get_chat,get_message,upload_img} from '../../config/urls'
 
 const message_datas = [
   {
@@ -115,6 +115,14 @@ class ChatBox extends Component {
 
 
   componentDidMount () {
+
+    fetch(get_chat,{method:'GET',credentials:'include'})
+        .then(res=>res.json())
+        .then(json=>{
+          console.log(json)
+        })
+
+
     let init = {
       scrollBarY: true,
       scrollBarFade: true
