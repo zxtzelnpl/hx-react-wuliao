@@ -70,7 +70,7 @@ module.exports = {
 
     //html 模版插件
     new HtmlWebpackPlugin({
-      template: __dirname + '/app/index.tmpl.html',
+      template: __dirname + '/app/index.tmpl.php',
     }),
 
     //定义为生产环境,编译 React时压缩最小
