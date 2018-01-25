@@ -15,7 +15,7 @@ class PopLogin extends Component {
     super(props)
     this.state = {
       choice: '',
-      phone: '',
+      account: '',
       password: '',
       code: '',
       code_img_url:''
@@ -31,7 +31,7 @@ class PopLogin extends Component {
   onChangePhone (e) {
     let value = trim(e.target.value)
     this.setState({
-      phone: value
+      account: value
     })
   }
 
@@ -50,11 +50,15 @@ class PopLogin extends Component {
   }
 
   onClickBtn () {
-    let {phone, password, code} = this.state
-    if (!phoneCheck(phone)) {
-      alert('手机格式不对，请重新输入')
-    }
-    console.log(this.state)
+    let {account, password, code} = this.state
+    // if (!phoneCheck(phone)) {
+    //   alert('手机格式不对，请重新输入')
+    // }
+    this.props.userActions.fetchPostsIfNeeded({
+      account,
+      password,
+      code
+    })
   }
 
   onClose () {
@@ -64,7 +68,8 @@ class PopLogin extends Component {
   getCode(){
     console.log('changeCode')
     fetch(get_code,{
-      method:'POST'
+      method:'POST',
+      credentials:'include'
     })
         .then(res=>res.json())
         .then(text=>{

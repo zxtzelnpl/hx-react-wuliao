@@ -1,16 +1,13 @@
 import * as actionTypes from '../constants/user'
-import {user_check} from '../config/urls'
-import moment from 'moment'
+import {user_login,user_logout} from '../config/urls'
 
 const requestPosts = () => ({
   type: actionTypes.USERCHECK_REQUEST_POST
 })
 
-const received = (phone,time) =>({
+const received = (account) =>({
   type: actionTypes.USERCHECK_RECEIVED,
-  receivedAt:moment().format('X'),
-  phone,
-  time
+  account,
 })
 
 const receivedError = () =>({
@@ -19,14 +16,14 @@ const receivedError = () =>({
 
 const fetchPosts = value => dispatch => {
   dispatch(requestPosts())
-  let {phone,secret,openid} = value
-  let url = `${user_check}?phone=${phone}&phone_pwd=${secret}&openid=${openid}`
+  let {account,password,code} = value
+  let url = `${user_login}?account=${account}&password=${password}&yzm=${code}`
 
-  return fetch(url)
+  return fetch(url,{method:'GET',credentials:'include'})
       .then(response => response.json())
       .then(json => {
         if(json.error==='1'){
-          dispatch(received(phone,json.time))
+          dispatch(received(account))
         }
         else{
           alert(json.msg)

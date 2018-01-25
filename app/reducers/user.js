@@ -2,9 +2,7 @@ import * as actionTypes from '../constants/user'
 
 export const initialState = {
   isFetching: false,
-  receivedAt: 0,
-  phone: '',
-  openid: '',
+  account: '',
   check: false
 }
 
@@ -19,9 +17,7 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         isFetching: false,
-        receivedAt: action.receivedAt,
-        phone: action.phone,
-        time: action.time,
+        account:action.account,
         check: true
       }
     case actionTypes.USERCHECK_ERROR:
@@ -32,8 +28,7 @@ export default function user(state = initialState, action) {
     case actionTypes.USER_LOGOUT:
       return {
         ...state,
-        receivedAt: 0,
-        phone: '',
+        account: '',
         check: false
       }
     default:
