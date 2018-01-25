@@ -9,6 +9,7 @@ import PopLogin from '../components/PopLogin'
 
 function mapStateToProps(state) {
   return {
+    user:state.user,
     views: state.views
   }
 }

@@ -22,7 +22,7 @@ const fetchPosts = value => dispatch => {
   return fetch(url,{method:'GET',credentials:'include'})
       .then(response => response.json())
       .then(json => {
-        if(json.error==='1'){
+        if(json.status){
           dispatch(received(account))
         }
         else{
@@ -39,6 +39,11 @@ const fetchPosts = value => dispatch => {
 const shouldFetchPosts = (state) => {
   return !state.user.isFetching;
 }
+
+export const location_change = value =>({
+  type: actionTypes.USER_LOCATION_CHANGE,
+  location:value
+})
 
 export const fetchPostsIfNeeded = value => (dispatch, getState) => {
   if (shouldFetchPosts(getState())) {

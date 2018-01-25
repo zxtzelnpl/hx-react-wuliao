@@ -8,6 +8,7 @@ import PopBack from '../components/PopBack'
 
 function mapStateToProps(state) {
   return {
+    user:state.user,
     views: state.views
   }
 }

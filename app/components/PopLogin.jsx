@@ -82,6 +82,10 @@ class PopLogin extends Component {
         })
   }
 
+  componentDidMount(){
+    this.getCode()
+  }
+
   render () {
     let pop_login_html = (<div className="pop-login">
       <div className="content">
@@ -96,12 +100,12 @@ class PopLogin extends Component {
           <span className="after-line">——</span>
         </div>
         <div className="blank-h-20"/>
-        <div className="phone">
+        <div className="account">
           <input type="text"
-                 className={this.state.choice === "phone" ? "choice" : ""}
-                 placeholder={this.state.choice === "phone" ? "" : "请输入手机号"}
+                 className={this.state.choice === "account" ? "choice" : ""}
+                 placeholder={this.state.choice === "account" ? "" : "请输入手机号"}
                  value={this.state.phone}
-                 onFocus={this.onFocus.bind(this, 'phone')}
+                 onFocus={this.onFocus.bind(this, 'account')}
                  onChange={this.onChangePhone.bind(this)}
           />
         </div>
@@ -141,7 +145,7 @@ class PopLogin extends Component {
       </div>
     </div>)
     return (
-        this.props.views.pop_login
+        (this.props.views.pop_login&&!this.props.user.check)
             ?
             pop_login_html
             : <div/>

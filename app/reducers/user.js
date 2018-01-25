@@ -3,11 +3,17 @@ import * as actionTypes from '../constants/user'
 export const initialState = {
   isFetching: false,
   account: '',
+  location:'上海',
   check: false
 }
 
-export default function user(state = initialState, action) {
+export default function user (state = initialState, action) {
   switch (action.type) {
+    case actionTypes.USER_LOCATION_CHANGE:
+      return {
+        ...state,
+        location: action.location
+      }
     case actionTypes.USERCHECK_REQUEST_POST:
       return {
         ...state,
@@ -17,7 +23,7 @@ export default function user(state = initialState, action) {
       return {
         ...state,
         isFetching: false,
-        account:action.account,
+        account: action.account,
         check: true
       }
     case actionTypes.USERCHECK_ERROR:
