@@ -20,9 +20,7 @@ const MessageItem = ({name, time, content}) => {
           <span className="name">{name}</span>
           <span className="time">{time}</span>
         </div>
-        <div className="content">
-          {content}
-        </div>
+        <div className="content" dangerouslySetInnerHTML={{__html:content}} />
       </div>
   )
 }
@@ -53,7 +51,7 @@ class ChatBox extends Component {
           <div id="message" className="messages-wrap">
             <div className="messages">
               {messages_html.reverse()}
-              {redis_html.reverse()}
+              {redis_html}
             </div>
           </div>
           <div className="blank-h-20"/>
@@ -120,7 +118,7 @@ class ChatBox extends Component {
     else{
       this.jroll.scrollTo(0,this.jroll.maxScrollY,300)
     }
-    this.roundRedis()
+    // this.roundRedis()
     this.moveDirection = ''
   }
 
@@ -137,7 +135,7 @@ class ChatBox extends Component {
   }
   sendMessage () {
     let name = this.props.user.account||'testtest123'
-    let content = this.input.innerHTML||'1212121212'
+    let content = this.input.innerHTML
     let time = moment().format('YYYY-MM-DD HH:mm:ss')
     if(name === ''){
       return alert('需要登录后才可发送消息')
@@ -195,7 +193,18 @@ class ChatBox extends Component {
     })
         .then(res => res.json())
         .then(json => {
-          console.log(json)
+          if(json.status){
+            let content = this.input.innerHTML
+            content += `<img src=${json.img} />`
+            this.input.innerHTML = content
+          }
+          else{
+            alert('网络连接错误')
+          }
+        })
+        .catch(err=>{
+          console.log(err)
+          alert('网络连接错误')
         })
   }
 

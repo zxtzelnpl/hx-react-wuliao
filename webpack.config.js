@@ -67,7 +67,7 @@ module.exports = {
   devServer: {
     proxy: [
       {
-        context: ['/upload/*', '/outerapi/**','/captcha/*','/chat/*','/user/*'],
+        context: ['/upload/*', '/outerapi/**','/captcha/*','/chat/*','/user/*','/assets/**'],
         target: 'http://pxzbs.jyzqsz.com',
         changeOrigin: true
       }
