@@ -1,0 +1,21 @@
+.zxt-selection {
+  position: relative;
+  cursor: pointer;
+  background:#fff;
+  .zxt-selection-selected {
+    background: url(../../static/img/icon_home_down.png) center right no-repeat;
+  }
+  .zxt-selection-box{
+    max-height:170px;
+    overflow: auto;
+    display:none;
+  }
+}
+.zxt-selection.on{
+  .zxt-selection-selected {
+    background: url(../../static/img/icon_home_up.png) center right no-repeat;
+  }
+  .zxt-selection-box{
+    display:block;
+  }
+}
