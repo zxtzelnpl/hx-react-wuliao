@@ -23,7 +23,7 @@ const fetch_data = value => dispatch => {
   fetch(url, {method: 'GET', credentials: 'include'})
       .then(res => res.json())
       .then(json => {
-        console.log(json)
+        dispatch(received(json))
       })
       .catch(err=>{
         console.log(err)
@@ -35,7 +35,7 @@ const shouldFecth = (state) => {
   return !state.isFetching
 }
 
-const fetchIfNeeded = value => (dispatch, getState) => {
+export const fetchIfNeeded = value => (dispatch, getState) => {
   let state = getState().research
   if (shouldFecth(state)) {
     dispatch(fetch_data(value))

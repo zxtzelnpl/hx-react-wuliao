@@ -13,3 +13,11 @@ score参数是取microtime(true)的前14位  若没数据则返回 nochat  否�
 #### 研究素材接口：
 http://pxzbs.jyzqsz.com/outerapi/get_yjsc/1/60/1  
 第一个1代表地区 60代表期数 第二个1代表精选/初选（1是精选0是初选）
+
+
+
+
+
+
+#### problems of urls
+开始的期数怎么来

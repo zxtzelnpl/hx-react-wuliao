@@ -5,8 +5,8 @@ import './StockItem.less'
 import React, {Component} from 'react'
 
 class StockItem extends Component {
-  constructor (props){
-    super(props)
+  constructor (){
+    super()
     this.state={
       show:false
     }
@@ -22,12 +22,12 @@ class StockItem extends Component {
 
 
   render () {
-    let {title,code,content} = this.props.stock
+    let {name,code,content} = this.props.stock
     let itemClassName=this.state.show?'stock-item on':'stock-item'
     return (
         <li className={itemClassName}>
           <p className="title" onClick={this.onClick.bind(this)}>
-            {title}
+            {name}
             <span>({code})</span>
           </p>
           <div className="content" dangerouslySetInnerHTML={{__html:content}}/>
