@@ -14,7 +14,8 @@ class StrategyContent extends Component {
       article:0,
       page:1,
       count:0,
-      datas:[]
+      datas:[],
+      content:''
     }
   }
 
@@ -39,16 +40,13 @@ class StrategyContent extends Component {
   }
 
   loadPage (page){
-    console.log(page)
-    console.log(typeof page)
-    this.setState({page})
-    // let start = this.state.page*12
-    // let data_url = `${api_strategy}/${this.props.location}/1/${start}/${this.limit}`
-    // fetch(data_url,{method: 'get', credentials: 'include'})
-    //     .then(res=>res.json())
-    //     .then(datas=>{
-    //       this.setState({datas,page})
-    //     })
+    let start = (page-1)*12
+    let data_url = `${api_strategy}/${this.props.location}/1/${start}/${this.limit}`
+    fetch(data_url,{method: 'get', credentials: 'include'})
+        .then(res=>res.json())
+        .then(datas=>{
+          this.setState({datas,page})
+        })
   }
 
   changeArticle(article){
@@ -59,7 +57,7 @@ class StrategyContent extends Component {
     return (
         <div className="strategy-body">
           <Pages
-              count={97}
+              count={this.state.count}
               datas={this.state.datas}
               limit={this.limit}
               page={this.state.page}
