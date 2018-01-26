@@ -50,6 +50,7 @@ class ChatBox extends Component {
         <div className="chat-box">
           <div id="message" className="messages-wrap">
             <div className="messages">
+              <div className="loading">Loading More</div>
               {messages_html.reverse()}
               {redis_html}
             </div>

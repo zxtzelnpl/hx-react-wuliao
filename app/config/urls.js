@@ -15,6 +15,7 @@ export const send_message = '/chat/send_msg'  //用户发送接口
 export const video_banners = '/outerapi/get_banner_list'  //视屏直播底部banners
 
 /**研究素材**/
+export const api_research_period = '/outerapi/get_yjsc_qishu'  //期数接口
 export const api_research = '/outerapi/get_yjsc'  //研究素材接口
 
 export const get_more_stock_chu_sh = '/outerapi/get_more_stock_chu_sh'
