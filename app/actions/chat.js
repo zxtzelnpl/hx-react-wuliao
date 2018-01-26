@@ -17,11 +17,13 @@ const receivedMessageError = () => ({
 })
 const fetchMessage = () => (dispatch, getState) => {
   dispatch(requestMessage())
-  let id_to = getState().chat.id_from
+  let _id_to = getState().chat.id_from
       , id_from
+      , id_to
       , url
-  if (id_to) {
-    id_from = parseInt(id_to) - 20
+  if (_id_to) {
+    id_to =  parseInt(_id_to) - 1
+    id_from = id_to - 20
     url = `${get_message}/${id_from}/${id_to}`
   }
   else {

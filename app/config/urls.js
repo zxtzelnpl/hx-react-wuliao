@@ -14,6 +14,9 @@ export const send_message = '/chat/send_msg'  //用户发送接口
 /**视频直播-banner**/
 export const video_banners = '/outerapi/get_banner_list'  //视屏直播底部banners
 
+/**研究素材**/
+export const api_research = 'http://pxzbs.jyzqsz.com/outerapi/get_yjsc'  //研究素材接口
+
 export const get_more_stock_chu_sh = '/outerapi/get_more_stock_chu_sh'
 export const get_more_stock_jing_sh = '/outerapi/get_more_stock_chu_sh'
 

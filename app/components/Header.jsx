@@ -52,7 +52,7 @@ class Header extends Component {
             }
             <div className="location">
               <Selection
-                  datas={['上海', '广州', '北京']}
+                  datas={['上海', '广州']}
                   selected={this.props.user.location}
                   onSelect={this.onLocationSelect.bind(this)}
               />
