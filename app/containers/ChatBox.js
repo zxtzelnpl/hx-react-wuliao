@@ -8,7 +8,7 @@ import ChatBox from '../components/livevideo/ChatBox'
 
 function mapStateToProps(state) {
   return {
-    user:state.user,
+    account:state.user.account,
     messages:state.chat.messages,
     redis:state.chat.redis
   }

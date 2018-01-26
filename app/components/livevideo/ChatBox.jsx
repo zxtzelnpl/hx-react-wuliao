@@ -5,7 +5,7 @@ import {trim} from '../../static/tools'
 
 import './ChatBox.less'
 
-import React, {Component,PureComponent} from 'react'
+import React, {Component, PureComponent} from 'react'
 import JRoll from 'jroll'
 import moment from 'moment'
 import EmojiPicker from './EmojiPicker'
@@ -20,7 +20,7 @@ const MessageItem = ({name, time, content}) => {
           <span className="name">{name}</span>
           <span className="time">{time}</span>
         </div>
-        <div className="content" dangerouslySetInnerHTML={{__html:content}} />
+        <div className="content" dangerouslySetInnerHTML={{__html: content}}/>
       </div>
   )
 }
@@ -28,22 +28,22 @@ const MessageItem = ({name, time, content}) => {
 class ChatBox extends Component {
   constructor (props) {
     super(props)
-    this.jroll=null
+    this.jroll = null
     this.load_time_control = null
     this.round_time_control = null
     this.moveDirection = ''
     this.state = {
-      redis:[],
+      redis: [],
       picker: ''
     }
   }
 
   render () {
-    let {messages,redis} = this.props
+    let {messages, redis} = this.props
     let messages_html = messages.map((data, index) => {
       return <MessageItem key={index} {...data} />
     })
-    let redis_html = redis.map((data,index)=>{
+    let redis_html = redis.map((data, index) => {
       return <MessageItem key={index} {...data} />
     })
     return (
@@ -61,25 +61,27 @@ class ChatBox extends Component {
                   className="input-box"
                   contentEditable={true}
                   dangerouslySetInnerHTML={{__html: '请输入你想说的话'}}
-                  ref={input => {
-                    this.input = input
-                  }}
+                  ref={input => {this.input = input}}
                   onKeyUp={this.keyUp.bind(this)}
                   onFocus={this.chatBoxFoucs.bind(this)}
               />
               <div className="toolbar">
                 <div className="emoji" onClick={this.pickerShow.bind(this, 'emoji')}/>
                 <div className="caitiao" onClick={this.pickerShow.bind(this, 'caitiao')}/>
-                <div className="pic"><label><input
-                    type="file"
-                    onChange={this.fileChange.bind(this)}/></label></div>
+                <div className="pic">
+                  <label>
+                    <input
+                        type="file"
+                        onChange={this.fileChange.bind(this)}/>
+                  </label>
+                </div>
                 <div className="send-btn" onClick={this.sendMessage.bind(this)}>
                   发送
                 </div>
               </div>
             </div>
             {this.state.picker === 'emoji' && <EmojiPicker onClick={this.addEmoji.bind(this)}/>}
-            {this.state.picker === 'caitiao' && <CaiTiaoPicker onClick={this.sendCaitiao.bind(this)}/>}
+            {this.state.picker === 'caitiao' && <CaiTiaoPicker onClick={this.addCaitiao.bind(this)}/>}
           </div>
         </div>
     )
@@ -93,36 +95,36 @@ class ChatBox extends Component {
       scrollBarFade: true
     }
     that.jroll = new JRoll('#message', init)
-    that.jroll.on('scroll',()=>{
-      if(that.jroll.y>0){
+    that.jroll.on('scroll', () => {
+      if (that.jroll.y > 0) {
         clearTimeout(that.load_time_control)
-        that.load_time_control=setTimeout(()=>{
+        that.load_time_control = setTimeout(() => {
           that.moveDirection = 'top'
           that.props.chatActions.fetchMessageIfNeeded()
-        },300)
+        }, 300)
       }
     })
   }
 
-  componentDidUpdate(){
+  componentDidUpdate () {
     console.info('ChatBox update')
     this.jroll.refresh()
-    if(this.moveDirection === 'bottom'){
-      this.jroll.scrollTo(0,this.jroll.maxScrollY,300)
+    if (this.moveDirection === 'bottom') {
+      this.jroll.scrollTo(0, this.jroll.maxScrollY, 300)
       this.moveDirection = ''
     }
-    else if(this.moveDirection === 'top'){
-      this.jroll.scrollTo(0,0,300)
+    else if (this.moveDirection === 'top') {
+      this.jroll.scrollTo(0, 0, 300)
       this.moveDirection = ''
     }
-    else{
-      this.jroll.scrollTo(0,this.jroll.maxScrollY,300)
+    else {
+      this.jroll.scrollTo(0, this.jroll.maxScrollY, 300)
     }
     // this.roundRedis()
     this.moveDirection = ''
   }
 
-  componentWillUnmount(){
+  componentWillUnmount () {
     this.jroll.destroy()
     clearTimeout(this.load_time_control)
     clearTimeout(this.round_time_control)
@@ -133,14 +135,15 @@ class ChatBox extends Component {
       this.sendMessage()
     }
   }
+
   sendMessage () {
-    let name = this.props.user.account||'testtest123'
+    let name = this.props.account || 'testtest123'
     let content = this.input.innerHTML
     let time = moment().format('YYYY-MM-DD HH:mm:ss')
-    if(name === ''){
+    if (name === '') {
       return alert('需要登录后才可发送消息')
     }
-    if(trim(content)===''){
+    if (trim(content) === '') {
       return alert('您未输入任何内容')
     }
     this.moveDirection = 'bottom'
@@ -150,9 +153,10 @@ class ChatBox extends Component {
       time
     })
   }
-  roundRedis(){
+
+  roundRedis () {
     this.round_time_control = setInterval(
-        this.props.chatActions.fetchRedisIfNeeded,3000
+        this.props.chatActions.fetchRedisIfNeeded, 3000
     )
   }
 
@@ -177,13 +181,22 @@ class ChatBox extends Component {
     htmlStr += `<img src=${url} />`
     this.input.innerHTML = htmlStr
   }
-  /**caitiao面板**/
-  sendCaitiao () {
 
+  /**caitiao面板**/
+  addCaitiao (e) {
+    let htmlStr = this.input.innerHTML
+    let url = e.target.src
+    htmlStr += `<img src=${url} />`
+    this.input.innerHTML = htmlStr
   }
+
   /**上传文件**/
   fileChange (e) {
-    let img = e.target.files[0]
+    let file = e.target
+    if (file.value === '') {
+      return false
+    }
+    let img = file.files[0]
         , formData = new FormData()
     formData.append('upload_img', img)
     fetch(upload_img, {
@@ -193,30 +206,32 @@ class ChatBox extends Component {
     })
         .then(res => res.json())
         .then(json => {
-          if(json.status){
+          if (json.status) {
             let content = this.input.innerHTML
             content += `<img src=${json.img} />`
             this.input.innerHTML = content
+            file.value=''
           }
-          else{
+          else {
             alert('网络连接错误')
           }
         })
-        .catch(err=>{
+        .catch(err => {
           console.log(err)
           alert('网络连接错误')
         })
   }
 
   /**聊天框点中清除**/
-  chatBoxFoucs(){
-    if(this.input.innerHTML === '请输入你想说的话'){
+  chatBoxFoucs () {
+    if (this.input.innerHTML === '请输入你想说的话') {
       this.chatBoxClear()
     }
   }
+
   /**聊天框点中清除**/
-  chatBoxClear(){
-    this.input.innerHTML=''
+  chatBoxClear () {
+    this.input.innerHTML = ''
   }
 }
 
