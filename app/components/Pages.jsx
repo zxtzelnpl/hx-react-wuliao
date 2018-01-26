@@ -3,18 +3,14 @@
 import './Pages.less'
 
 import React, {Component} from 'react'
-
-const PageA = ({className, i}) => {
-  return <p className={className}>{i}</p>
-}
+import Loading from './Loading'
 
 class Pages extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
-    console.log(props)
   }
 
-  onPaginationClick (e) {
+  onPaginationClick(e) {
     if (e.target.nodeName === 'P') {
       let str = e.target.innerHTML
       if (str === '&gt;') {
@@ -32,15 +28,14 @@ class Pages extends Component {
     }
   }
 
-  onItemClick(e){
+  onItemClick(e) {
     let li = e.target
-    if(li.nodeName==='LI'){
+    if (li.nodeName === 'LI') {
       let article
-          ,lis = e.target.parentNode.childNodes
-          ,len=lis.length
-      for(let i=0;i<len;i++){
-        console.log(i)
-        if(li === lis[i]){
+          , lis = e.target.parentNode.childNodes
+          , len = lis.length
+      for (let i = 0; i < len; i++) {
+        if (li === lis[i]) {
           article = i
           return this.props.changeArticle(article)
         }
@@ -48,7 +43,7 @@ class Pages extends Component {
     }
   }
 
-  _renderPagination () {
+  _renderPagination() {
     let {count, limit, page} = this.props
         , box_len = 8
         , page_count = Math.ceil(count / limit)
@@ -123,7 +118,7 @@ class Pages extends Component {
     return _html
   }
 
-  _renderItems () {
+  _renderItems() {
     let lists = this.props.datas.map((data, index) => {
       let className = '';
       if (index === this.props.article) {
@@ -134,10 +129,8 @@ class Pages extends Component {
     return lists
   }
 
-  render () {
-    let {datas,article} = this.props
-    console.log(article)
-    console.log(typeof article)
+  render() {
+    let {datas, article, isPageLoading} = this.props
     let lists = datas.map((data, index) => {
       let className = '';
       if (index === article) {
@@ -147,9 +140,12 @@ class Pages extends Component {
     })
     return (
         <div className="zxt-pages">
-          <ul className="zxt-pages-list" onClick={this.onItemClick.bind(this)}>
-            {this._renderItems()}
-          </ul>
+          <div className="zxt-pages-list">
+            <ul className="inner-wrap" onClick={this.onItemClick.bind(this)}>
+              {this._renderItems()}
+            </ul>
+            {isPageLoading && <Loading/>}
+          </div>
           <div className="blank-h-20"/>
           <div className="zxt-pages-num">
             <div className="inner-wrap" onClick={this.onPaginationClick.bind(this)}>

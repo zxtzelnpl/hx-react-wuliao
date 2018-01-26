@@ -1,13 +1,25 @@
 @import '../consts.less';
+@keyframes myRotate {
+  0%{
+    transform:rotate(360deg);
+  }
+  100%{
+    transform:rotate(0);
+  }
+}
 .zxt-pages{
+  @itemW:355px;
+  @itemH:50px;
+  width:@itemW;
+  height:@itemH * 12 + 20px + 40px;
   overflow: hidden;
   .zxt-pages-list{
-    @itemH:50px;
+    position:relative;
     height:@itemH * 12;
     li{
       box-sizing: border-box;
       padding-left:20px;
-      width:355px;
+      width:@itemW;
       height:@itemH;
       border-bottom:1px solid @gray;
       line-height:@itemH - 1px;
