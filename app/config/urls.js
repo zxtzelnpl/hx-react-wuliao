@@ -20,15 +20,20 @@ export const api_research = '/outerapi/get_yjsc'  //研究素材接口
 
 /**策略素材**/
 export const api_strategy = '/outerapi/get_clsc'
+export const api_strategy_count = '/outerapi/get_clsc_count'
 
 /**营销素材**/
 export const api_marketing = ''
+export const api_marketing_couunt = '/outerapi/get_yxsc_count'
 
 /**体验素材**/
 export const api_experience = '/outerapi/get_tysc'
+export const api_experience_count = '/outerapi/get_tysc_count'
 
 /**客服素材**/
 export const api_customer_service = '/outerapi/get_kfsc'
+export const api_customer_service_count = '/outerapi/get_kfsc_count'
 
 /**回播**/
 export const play_back='/outerapi/get_huibo'
+export const play_back_count='/outerapi/get_huibo_count'

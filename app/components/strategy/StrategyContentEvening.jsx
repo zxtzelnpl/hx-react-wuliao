@@ -8,15 +8,15 @@ import Pages from '../Pages'
 class StrategyContent extends Component {
   render () {
     return (
-        <div className="strategy-content">
+        <div className="strategy-body">
           <Pages selected={0}/>
           <div className="blank-w-20"/>
           <div className="content">
-            <div className="strategy-content-head">
+            <div className="content-head">
               《股票收评》 2018-01-04
               <span className="download">下载</span>
             </div>
-            <div className="strategy-content-in">
+            <div className="content-in">
               从大盘的技术面来看，今天没有什么亮点，大盘高开后一路低走，最终收于5日均线下方，从15分钟和30分钟来看，最后半小时形成一个短线介入位置，明日早盘高开的概率更大，目前短线受制于3800和今天高开3975点。
 
               从板块来看，银行 两桶油 保险 券商

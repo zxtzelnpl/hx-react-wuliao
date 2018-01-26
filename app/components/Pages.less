@@ -26,6 +26,11 @@
     }
   }
   .zxt-pages-num{
+    margin:0 auto;
+    text-align: center;
+    .inner-wrap{
+      display:inline-block;
+    }
     p{
       float:left;
       box-sizing: border-box;
@@ -44,9 +49,20 @@
         border-color:@red;
       }
       &:last-child{
-        float:right;
         margin-right:0;
       }
+    }
+    span{
+      float:left;
+      box-sizing: border-box;
+      margin-right:9px;
+      width:36px;
+      height:36px;
+      border:1px solid @gray;
+      line-height:34px;
+      text-align: center;
+      color:#999999;
+      background:#fff;
     }
   }
 }

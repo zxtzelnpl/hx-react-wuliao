@@ -58,3 +58,10 @@ http://pxzbs.jyzqsz.com/outerapi/get_kfsc/1/2/0/20
 # 回播
 1. 视频回播数据接口*
 http://pxzbs.jyzqsz.com/outerapi/get_huibo/1/0/20
+
+# count接口
+http://pxzbs.jyzqsz.com/outerapi/get_clsc_count/1/1
+http://pxzbs.jyzqsz.com/outerapi/get_yxsc_count/1/0
+http://pxzbs.jyzqsz.com/outerapi/get_tysc_count/1/0
+http://pxzbs.jyzqsz.com/outerapi/get_kfsc_count/1/0
+http://pxzbs.jyzqsz.com/outerapi/get_huibo_count/1

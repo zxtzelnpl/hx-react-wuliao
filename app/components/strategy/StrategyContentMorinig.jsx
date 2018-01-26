@@ -4,23 +4,76 @@ import './StrategyContent.less'
 
 import React, {Component} from 'react'
 import Pages from '../Pages'
+import {api_strategy, api_strategy_count} from '../../config/urls'
 
 class StrategyContent extends Component {
   constructor (props) {
     super(props)
+    this.limit = 12
+    this.state={
+      article:0,
+      page:1,
+      count:0,
+      datas:[]
+    }
+  }
+
+  componentDidMount () {
+    let start = this.state.page-1
+    let count_url = `${api_strategy_count}/${this.props.location}/1`
+    let data_url = `${api_strategy}/${this.props.location}/1/${start}/${this.limit}`
+    let count_fetch = fetch(count_url, {method: 'get', credentials: 'include'})
+        .then(res => res.json())
+    let data_fetch = fetch(data_url, {method: 'get', credentials: 'include'})
+        .then(res => res.json())
+    Promise
+        .all([count_fetch, data_fetch])
+        .then(([count, datas]) => {
+          console.log(count)
+          console.log(datas)
+          this.setState({
+            count,
+            datas
+          })
+        })
+  }
+
+  loadPage (page){
+    console.log(page)
+    console.log(typeof page)
+    this.setState({page})
+    // let start = this.state.page*12
+    // let data_url = `${api_strategy}/${this.props.location}/1/${start}/${this.limit}`
+    // fetch(data_url,{method: 'get', credentials: 'include'})
+    //     .then(res=>res.json())
+    //     .then(datas=>{
+    //       this.setState({datas,page})
+    //     })
+  }
+
+  changeArticle(article){
+    this.setState({article})
   }
 
   render () {
     return (
-        <div className="strategy-content">
-          <Pages selected={0}/>
+        <div className="strategy-body">
+          <Pages
+              count={97}
+              datas={this.state.datas}
+              limit={this.limit}
+              page={this.state.page}
+              article={this.state.article}
+              loadPage={this.loadPage.bind(this)}
+              changeArticle={this.changeArticle.bind(this)}
+          />
           <div className="blank-w-20"/>
           <div className="content">
-            <div className="strategy-content-head">
+            <div className="content-head">
               《股票早评》 2018-01-04
               <span className="download">下载</span>
             </div>
-            <div className="strategy-content-in">
+            <div className="content-in">
               从大盘的技术面来看，今天没有什么亮点，大盘高开后一路低走，最终收于5日均线下方，从15分钟和30分钟来看，最后半小时形成一个短线介入位置，明日早盘高开的概率更大，目前短线受制于3800和今天高开3975点。
 
               从板块来看，银行 两桶油 保险 券商
