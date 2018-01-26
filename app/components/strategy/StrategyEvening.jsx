@@ -7,9 +7,10 @@ import Pages from '../Pages'
 import StrategyContent from './StrategyContent'
 import {api_strategy, api_strategy_count} from '../../config/urls'
 
-class StrategyMorining extends Component {
+class StrategyMorning extends Component {
   constructor(props) {
     super(props)
+    this.type=3
     this.limit = 12
     this.state = {
       article: 0,
@@ -26,8 +27,8 @@ class StrategyMorining extends Component {
       isPageLoading:true
     })
     let start = this.state.page - 1
-    let count_url = `${api_strategy_count}/${this.props.location}/1`
-    let data_url = `${api_strategy}/${this.props.location}/1/${start}/${this.limit}`
+    let count_url = `${api_strategy_count}/${this.props.location}/${this.type}`
+    let data_url = `${api_strategy}/${this.props.location}/${this.type}/${start}/${this.limit}`
     let count_fetch = fetch(count_url, {method: 'get', credentials: 'include'})
         .then(res => res.json())
     let data_fetch = fetch(data_url, {method: 'get', credentials: 'include'})
@@ -59,6 +60,7 @@ class StrategyMorining extends Component {
 
   loadPage(page) {
     this.setState({
+      article:null,
       page,
       isPageLoading: true
     })
@@ -103,4 +105,4 @@ class StrategyMorining extends Component {
   }
 }
 
-export default StrategyMorining
+export default StrategyMorning

@@ -7,9 +7,9 @@ import {connect} from 'react-redux'
 import {api_strategy_count} from '../config/urls'
 
 import Head from '../components/Head'
-import StrategyContentMorinig from '../components/strategy/StrategyContentMorinig'
-import StrategyContentNoon from '../components/strategy/StrategyContentNoon'
-import StrategyContentEvening from '../components/strategy/StrategyContentEvening'
+import StrategyMorning from '../components/strategy/StrategyMorning'
+import StrategyNoon from '../components/strategy/StrategyNoon'
+import StrategyEvening from '../components/strategy/StrategyEvening'
 
 class Strategy extends Component {
   constructor (props) {
@@ -20,9 +20,9 @@ class Strategy extends Component {
       '盘中解读',
       '股票收评']
     this.tabContents = [
-      <StrategyContentMorinig location={this.location}/>,
-      <StrategyContentNoon location={this.location}/>,
-      <StrategyContentEvening location={this.location}/>
+      <StrategyMorning location={this.location}/>,
+      <StrategyNoon location={this.location}/>,
+      <StrategyEvening location={this.location}/>
     ]
     this.state={
       selected:0

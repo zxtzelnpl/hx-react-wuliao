@@ -126,7 +126,16 @@ class Pages extends Component {
       }
       return <li className={className} key={data.id}>{data.title}</li>
     })
-    return lists
+    if(lists.length>0){
+      return (
+          <ul className="inner-wrap" onClick={this.onItemClick.bind(this)}>
+            {lists}
+          </ul>
+      )
+    }else{
+      return <div>暂无数据</div>
+    }
+
   }
 
   render() {
@@ -141,9 +150,7 @@ class Pages extends Component {
     return (
         <div className="zxt-pages">
           <div className="zxt-pages-list">
-            <ul className="inner-wrap" onClick={this.onItemClick.bind(this)}>
-              {this._renderItems()}
-            </ul>
+            {this._renderItems()}
             {isPageLoading && <Loading/>}
           </div>
           <div className="blank-h-20"/>
