@@ -18,6 +18,17 @@ export const video_banners = '/outerapi/get_banner_list'  //视屏直播底部ba
 export const api_research_period = '/outerapi/get_yjsc_qishu'  //期数接口
 export const api_research = '/outerapi/get_yjsc'  //研究素材接口
 
-export const get_more_stock_chu_sh = '/outerapi/get_more_stock_chu_sh'
-export const get_more_stock_jing_sh = '/outerapi/get_more_stock_chu_sh'
+/**策略素材**/
+export const api_strategy = '/outerapi/get_clsc'
 
+/**营销素材**/
+export const api_marketing = ''
+
+/**体验素材**/
+export const api_experience = '/outerapi/get_tysc'
+
+/**客服素材**/
+export const api_customer_service = '/outerapi/get_kfsc'
+
+/**回播**/
+export const play_back='/outerapi/get_huibo'
