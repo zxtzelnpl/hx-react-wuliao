@@ -11,7 +11,7 @@ export const initialState = {
   score:new Date().getTime()+'0'
 }
 
-export default function user (state = initialState, action) {
+export default function chat (state = initialState, action) {
   switch (action.type) {
     case actionTypes.REQUEST_MESSAGE:
       return {
