@@ -3,7 +3,9 @@
 import './Pages.less'
 
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import Loading from './Loading'
+import Selection from "./Selection";
 
 class Pages extends Component {
   constructor(props) {
@@ -164,4 +166,13 @@ class Pages extends Component {
   }
 }
 
+Pages.propTyeps = {
+  count:PropTypes.number.isRequired,
+  limit:PropTypes.number.isRequired,
+  page:PropTypes.number.isRequired,
+  article:PropTypes.number.isRequired,
+  isPageLoading:PropTypes.bool.isRequired,
+  loadPage:PropTypes.func.isRequired,
+  changeArticle:PropTypes.func.isRequired,
+}
 export default Pages

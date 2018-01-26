@@ -5,9 +5,9 @@ import './Experience.less'
 import React, {Component} from 'react'
 
 import Head from '../components/Head'
-import MediaVideo from '../components/experience/MediaVideo'
-import StockReportAnnual from '../components/experience/StockReportAnnual'
 import StockReportByWeek from '../components/experience/StockReportByWeek'
+import StockReportAnnual from '../components/experience/StockReportAnnual'
+import MediaVideo from '../components/experience/MediaVideo'
 
 class Experience extends Component {
   constructor (props) {
