@@ -122,10 +122,7 @@ class Pages extends Component {
   }
 
   render() {
-    let {datas, article, isPageLoading} = this.props
-    let lists = datas.map((data, index) => {
-      return <li key={index}>{data.title}<img src={right_arrow}/></li>
-    })
+    let {isPageLoading} = this.props
     return (
         <div className="zxt-pages-with-content">
           <div className="zxt-pages-list-wrap">
