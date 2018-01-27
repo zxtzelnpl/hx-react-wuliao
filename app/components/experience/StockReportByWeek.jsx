@@ -36,7 +36,6 @@ class StockReportByWeek extends Component {
     Promise
         .all([count_fetch, data_fetch])
         .then(([count, datas]) => {
-          console.log(datas)
           if(count>0&&datas.length>0){
             let body =datas[this.state.article]
             this.setState({

@@ -1,6 +1,7 @@
 'use strict'
 
-import './Pages.less'
+import './ContentWithPagination.less'
+import right_arrow from '../static/img/icon_other_right.png'
 
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
@@ -25,21 +26,6 @@ class Pages extends Component {
       else {
         let page = parseInt(str)
         this.props.loadPage(page)
-      }
-    }
-  }
-
-  onItemClick(e) {
-    let li = e.target
-    if (li.nodeName === 'LI') {
-      let article
-          , lis = e.target.parentNode.childNodes
-          , len = lis.length
-      for (let i = 0; i < len; i++) {
-        if (li === lis[i]) {
-          article = i
-          return this.props.changeArticle(article)
-        }
       }
     }
   }
@@ -121,15 +107,11 @@ class Pages extends Component {
 
   _renderItems() {
     let lists = this.props.datas.map((data, index) => {
-      let className = '';
-      if (index === this.props.article) {
-        className = 'on'
-      }
-      return <li className={className} key={data.id}>{data.title}</li>
+      return <li key={index}><a href={data.url}>{data.title}<img src={right_arrow}/></a></li>
     })
     if(lists.length>0){
       return (
-          <ul className="inner-wrap" onClick={this.onItemClick.bind(this)}>
+          <ul className="zxt-pages-list">
             {lists}
           </ul>
       )
@@ -142,19 +124,15 @@ class Pages extends Component {
   render() {
     let {datas, article, isPageLoading} = this.props
     let lists = datas.map((data, index) => {
-      let className = '';
-      if (index === article) {
-        className = 'on'
-      }
-      return <li className={className} key={data.id}>{data.title}</li>
+      return <li key={index}>{data.title}<img src={right_arrow}/></li>
     })
     return (
-        <div className="zxt-pages-nav-left">
-          <div className="zxt-pages-list">
+        <div className="zxt-pages-with-content">
+          <div className="zxt-pages-list-wrap">
             {this._renderItems()}
             {isPageLoading && <Loading/>}
           </div>
-          <div className="blank-h-20"/>
+          <div className="blank-h-70" />
           <div className="zxt-pages-num">
             <div className="inner-wrap" onClick={this.onPaginationClick.bind(this)}>
               {this._renderPagination()}
@@ -169,9 +147,7 @@ Pages.propTyeps = {
   count:PropTypes.number.isRequired,
   limit:PropTypes.number.isRequired,
   page:PropTypes.number.isRequired,
-  article:PropTypes.number.isRequired,
   isPageLoading:PropTypes.bool.isRequired,
   loadPage:PropTypes.func.isRequired,
-  changeArticle:PropTypes.func.isRequired,
 }
 export default Pages

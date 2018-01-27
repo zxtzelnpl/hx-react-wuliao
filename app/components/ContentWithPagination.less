@@ -1,34 +1,46 @@
 @import '../consts.less';
-.zxt-pages-nav-left{
-  @itemW:355px;
-  @itemH:50px;
-  width:@itemW;
-  height:@itemH * 12 + 20px + 40px;
-  overflow: hidden;
-  .zxt-pages-list{
+.zxt-pages-with-content{
+  .zxt-pages-list-wrap{
     position:relative;
-    height:@itemH * 12;
-    background:#fff;
+    width:1280px;
+    height:450px;
+  }
+  .zxt-pages-list{
+    width:@pageWidth;
+    @itemH:50px;
+    overflow: hidden;
     li{
       box-sizing: border-box;
-      padding-left:20px;
-      width:@itemW;
+      float:left;
+      padding-left:60px;
+      width:(@pageWidth - @gap)/2;
       height:@itemH;
       border-bottom:1px solid @gray;
       line-height:@itemH - 1px;
-      color:#000;
-      cursor:pointer;
-      &.on{
-        color:#fff;
-        background:@red;
-        border-color:@red;
+      background:#fff url(../static/img/icon_other_viedio.png) 20px center no-repeat;
+      a{
+        display:block;
+        height:@itemH - 1px;
+        text-decoration: none;
+        color:#000;
       }
-      &:hover{
+      img{
+        float:right;
+        margin-top:7px;
+        margin-right:10px;
+      }
+      &.on,&:hover{
         color:#fff;
         background:@red;
         border-color:@red;
+        img{
+          visibility: hidden;
+        }
       }
     }
+  }
+  li:nth-child(odd){
+    margin-right:20px;
   }
   .zxt-pages-num{
     margin:0 auto;
