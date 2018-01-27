@@ -3,6 +3,7 @@
 import './CustomerService.less'
 
 import React, {Component} from 'react'
+import {connect} from "react-redux";
 import Head from '../components/Head'
 import StockAnalyze from '../components/customerservice/StockAnalyze'
 import ServiceVideo from '../components/customerservice/ServiceVideo'
@@ -10,12 +11,13 @@ import ServiceVideo from '../components/customerservice/ServiceVideo'
 class CustomerService extends Component {
   constructor (props){
     super(props)
+    this.location = this.props.location === '上海'?'1':'0'
     this.tabNames = [
       '持仓分析',
       '服务视频']
     this.tabContents = [
-      <StockAnalyze />,
-      <ServiceVideo />
+      <StockAnalyze location={this.location} />,
+      <ServiceVideo location={this.location} />
     ]
     this.state={
       selected:1
@@ -44,4 +46,15 @@ class CustomerService extends Component {
   }
 }
 
-export default CustomerService
+/**绑定Redux**/
+function mapStateToProps(state) {
+  return {
+    location:state.user.location
+  }
+}
+function mapDispatchToProps() {
+  return {
+
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(CustomerService)
