@@ -13,17 +13,18 @@ import MediaVideo from '../components/experience/MediaVideo'
 class Experience extends Component {
   constructor (props) {
     super(props)
+    this.location = this.props.location === '上海'?'1':'0'
     this.tabNames = [
       '股票周报',
       '股票年报',
       '媒体视频']
     this.tabContents = [
-      <StockReportByWeek location={this.props.location}/>,
-      <StockReportAnnual location={this.props.location}/>,
-      <MediaVideo location={this.props.location}/>
+      <StockReportByWeek location={this.location}/>,
+      <StockReportAnnual location={this.location}/>,
+      <MediaVideo location={this.location}/>
     ]
     this.state={
-      selected:1
+      selected:0
     }
   }
 

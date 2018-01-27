@@ -6,7 +6,7 @@ import Loading from '../Loading'
 class StrategyContent extends Component {
 
   componentDidUpdate(){
-    console.log('zxt')
+
   }
 
   render() {
