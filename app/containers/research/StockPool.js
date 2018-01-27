@@ -9,9 +9,7 @@ import StockPool from '../../components/research/StockPool'
 function mapStateToProps(state) {
   return {
     location:state.user.location,
-    period_0:state.research.period_0,
-    period_1:state.research.period_1,
-    data:state.research.data
+    research:state.research
   }
 }
 

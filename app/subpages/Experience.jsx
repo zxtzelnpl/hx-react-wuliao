@@ -3,6 +3,7 @@
 import './Experience.less'
 
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
 import Head from '../components/Head'
 import StockReportByWeek from '../components/experience/StockReportByWeek'
@@ -17,9 +18,9 @@ class Experience extends Component {
       '股票年报',
       '媒体视频']
     this.tabContents = [
-      <StockReportByWeek />,
-      <StockReportAnnual />,
-      <MediaVideo />
+      <StockReportByWeek location={this.props.location}/>,
+      <StockReportAnnual location={this.props.location}/>,
+      <MediaVideo location={this.props.location}/>
     ]
     this.state={
       selected:1
@@ -48,4 +49,15 @@ class Experience extends Component {
   }
 }
 
-export default Experience
+/**绑定Redux**/
+function mapStateToProps(state) {
+  return {
+    location:state.user.location
+  }
+}
+function mapDispatchToProps() {
+  return {
+
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Experience)

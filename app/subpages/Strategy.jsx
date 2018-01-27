@@ -4,7 +4,6 @@ import './Strategy.less'
 
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {api_strategy_count} from '../config/urls'
 
 import Head from '../components/Head'
 import StrategyMorning from '../components/strategy/StrategyMorning'

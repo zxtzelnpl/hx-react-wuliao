@@ -7,11 +7,11 @@ import Selection from '../research/Selection'
 import StockItem from '../research/StockItem'
 
 class StockPool extends Component {
-  constructor () {
+  constructor() {
     super()
   }
 
-  primarySelectionStockChange (periods) {
+  primarySelectionStockChange(periods) {
     let location = this.props.location === '上海' ? 1 : 0
         , type = 0
     this.props.researchActions.fetchIfNeeded({
@@ -21,7 +21,7 @@ class StockPool extends Component {
     })
   }
 
-  handPickChange (periods) {
+  handPickChange(periods) {
     let location = this.props.location === '上海' ? 1 : 0
         , type = 1
     this.props.researchActions.fetchIfNeeded({
@@ -31,13 +31,13 @@ class StockPool extends Component {
     })
   }
 
-  componentDidMount () {
+  componentDidMount() {
     let location = this.props.location === '上海' ? 1 : 0
     this.props.researchActions.fetchPeriodIfNeeded({location})
   }
 
-  render () {
-    let {data, period_0, period_1} = this.props
+  render() {
+    let {data, period_0, period_1, isFetching} = this.props.research
     let stocks_one = [],
         stocks_two = [],
         stocks_three = [],
@@ -85,17 +85,19 @@ class StockPool extends Component {
           </div>
           <div className="blank-h-20"/>
           <div className="stock-pool-content">
-            <ul className="stock-content one">
-              {stocks_one}
-            </ul>
-            <div className="blank-w-19"/>
-            <ul className="stock-content two">
-              {stocks_two}
-            </ul>
-            <div className="blank-w-19"/>
-            <ul className="stock-content two">
-              {stocks_three}
-            </ul>
+            <div className="stock-pool-content-wrap">
+              <ul className="stock-content one">
+                {stocks_one}
+              </ul>
+              <div className="blank-w-19"/>
+              <ul className="stock-content two">
+                {stocks_two}
+              </ul>
+              <div className="blank-w-19"/>
+              <ul className="stock-content two">
+                {stocks_three}
+              </ul>
+            </div>
           </div>
         </div>
     )
