@@ -12,7 +12,7 @@ class Pages extends Component {
   }
 
   onPaginationClick(e) {
-    if (e.target.nodeName === 'P') {
+    if (e.target.nodeName === 'P'&&!this.props.isPageLoading) {
       let str = e.target.innerHTML
       if (str === '&gt;') {
         let page = this.props.page + 1
