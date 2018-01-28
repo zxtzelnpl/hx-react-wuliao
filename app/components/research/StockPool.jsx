@@ -5,6 +5,7 @@ import './StockPool.less'
 import React, {Component} from 'react'
 import Selection from '../research/Selection'
 import StockItem from '../research/StockItem'
+import Loading  from '../Loading'
 
 class StockPool extends Component {
   constructor() {
@@ -12,7 +13,7 @@ class StockPool extends Component {
   }
 
   primarySelectionStockChange(periods) {
-    let location = this.props.location === '上海' ? 1 : 0
+    let location = this.props.location
         , type = 0
     this.props.researchActions.fetchIfNeeded({
       location,
@@ -22,7 +23,7 @@ class StockPool extends Component {
   }
 
   handPickChange(periods) {
-    let location = this.props.location === '上海' ? 1 : 0
+    let location = this.props.location
         , type = 1
     this.props.researchActions.fetchIfNeeded({
       location,
@@ -32,7 +33,7 @@ class StockPool extends Component {
   }
 
   componentDidMount() {
-    let location = this.props.location === '上海' ? 1 : 0
+    let location = this.props.location
     this.props.researchActions.fetchPeriodIfNeeded({location})
   }
 
@@ -98,6 +99,7 @@ class StockPool extends Component {
                 {stocks_three}
               </ul>
             </div>
+            {isFetching&&<Loading />}
           </div>
         </div>
     )

@@ -11,13 +11,12 @@ import ServiceVideo from '../components/customerservice/ServiceVideo'
 class CustomerService extends Component {
   constructor (props){
     super(props)
-    this.location = this.props.location === '上海'?'1':'0'
     this.tabNames = [
       '持仓分析',
       '服务视频']
     this.tabContents = [
-      <StockAnalyze location={this.location} />,
-      <ServiceVideo location={this.location} />
+      <StockAnalyze location={this.props.location} />,
+      <ServiceVideo location={this.props.location} />
     ]
     this.state={
       selected:1

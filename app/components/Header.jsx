@@ -15,6 +15,7 @@ import Selection from './Selection'
 class Header extends Component {
   constructor (props) {
     super(props)
+    this.locations=['','上海','广州']
   }
 
   onLoginBtnClick () {
@@ -22,7 +23,10 @@ class Header extends Component {
   }
 
   onLocationSelect (item) {
-    this.props.userActions.location_change(item)
+    let index = this.locations.indexOf(item)
+    if(index>-1){
+      this.props.userActions.location_change(index)
+    }
   }
 
   saveToBrowser () {
@@ -34,6 +38,7 @@ class Header extends Component {
   }
 
   render () {
+    let selected = this.locations[this.props.user.location]
     return (
         <header>
           <div className="logo">
@@ -52,8 +57,8 @@ class Header extends Component {
             }
             <div className="location">
               <Selection
-                  datas={['上海', '广州']}
-                  selected={this.props.user.location}
+                  datas={this.locations}
+                  selected={selected}
                   onSelect={this.onLocationSelect.bind(this)}
               />
             </div>

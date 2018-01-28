@@ -10,6 +10,7 @@ function mapStateToProps(state) {
   return {
     account:state.user.account,
     messages:state.chat.messages,
+    isFetchingMessage:state.chat.isFetchingMessage,
     redis:state.chat.redis
   }
 }

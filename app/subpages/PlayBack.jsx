@@ -10,7 +10,6 @@ import PlayBackContent from '../components/playback/PlayBackContent'
 class PlayBack extends Component {
   constructor(props){
     super(props)
-    this.location = this.props.location === '上海'?'1':'0'
   }
   render () {
     return (
@@ -18,7 +17,7 @@ class PlayBack extends Component {
           <div className="blank-h-20" />
           <Head />
           <div className="blank-h-20" />
-          <PlayBackContent location={this.location} />
+          <PlayBackContent location={this.props.location} />
         </div>
     )
   }

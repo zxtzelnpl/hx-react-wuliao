@@ -3,7 +3,7 @@ import * as actionTypes from '../constants/user'
 export const initialState = {
   isFetching: false,
   account: '',
-  location:'上海',
+  location:1,
   check: false
 }
 

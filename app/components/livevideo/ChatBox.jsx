@@ -39,7 +39,7 @@ class ChatBox extends Component {
   }
 
   render () {
-    let {messages, redis} = this.props
+    let {messages, redis,isFetchingMessage} = this.props
     let messages_html = messages.map((data, index) => {
       return <MessageItem key={index} {...data} />
     })
@@ -50,7 +50,7 @@ class ChatBox extends Component {
         <div className="chat-box">
           <div id="message" className="messages-wrap">
             <div className="messages">
-              <div className="loading">Loading More</div>
+              <div className="loading">{isFetchingMessage?'加载数据......':''}</div>
               {messages_html.reverse()}
               {redis_html}
             </div>
@@ -102,7 +102,7 @@ class ChatBox extends Component {
         that.load_time_control = setTimeout(() => {
           that.moveDirection = 'top'
           that.props.chatActions.fetchMessageIfNeeded()
-        }, 300)
+        }, 200)
       }
     })
   }

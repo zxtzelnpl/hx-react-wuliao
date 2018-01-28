@@ -13,15 +13,14 @@ import StrategyEvening from '../components/strategy/StrategyEvening'
 class Strategy extends Component {
   constructor (props) {
     super(props)
-    this.location = this.props.location === '上海'?'1':'0'
     this.tabNames = [
       '股票早评',
       '盘中解读',
       '股票收评']
     this.tabContents = [
-      <StrategyMorning location={this.location}/>,
-      <StrategyNoon location={this.location}/>,
-      <StrategyEvening location={this.location}/>
+      <StrategyMorning location={this.props.location}/>,
+      <StrategyNoon location={this.props.location}/>,
+      <StrategyEvening location={this.props.location}/>
     ]
     this.state={
       selected:0
