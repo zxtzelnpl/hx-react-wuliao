@@ -5,7 +5,7 @@ import './StockReport.less'
 import React, {Component} from 'react'
 import Pages from '../Pages'
 import ReportContent from './ReportContent'
-import {api_experience, api_experience_count} from '../../config/urls'
+import {api_experience as data_url_api , api_experience_count as count_url_api} from '../../config/urls'
 
 class StockReportByWeek extends Component {
   constructor(props) {
@@ -27,8 +27,8 @@ class StockReportByWeek extends Component {
       isPageLoading:true
     })
     let start = this.state.page - 1
-    let count_url = `${api_experience_count}/${this.props.location}/${this.type}`
-    let data_url = `${api_experience}/${this.props.location}/${this.type}/${start}/${this.limit}`
+    let count_url = `${count_url_api}/${this.props.location}/${this.type}`
+    let data_url = `${data_url_api}/${this.props.location}/${this.type}/${start}/${this.limit}`
     let count_fetch = fetch(count_url, {method: 'get', credentials: 'include'})
         .then(res => res.json())
     let data_fetch = fetch(data_url, {method: 'get', credentials: 'include'})
@@ -67,7 +67,7 @@ class StockReportByWeek extends Component {
       isPageLoading: true
     })
     let start = (page - 1) * 12
-    let data_url = `${api_experience}/${this.props.location}/1/${start}/${this.limit}`
+    let data_url = `${data_url_api}/${this.props.location}/${this.type}/${start}/${this.limit}`
     fetch(data_url, {method: 'get', credentials: 'include'})
         .then(res => res.json())
         .then(datas => {
