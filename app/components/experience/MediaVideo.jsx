@@ -19,8 +19,11 @@ class MediaVideo extends Component {
     }
   }
 
-  componentDidMount(){
+  initialPage(){
     this.setState({
+      page: 1,
+      count: 0,
+      datas: [],
       isPageLoading:true
     })
     let start = this.state.page - 1
@@ -69,6 +72,18 @@ class MediaVideo extends Component {
             isPageLoading:false
           })
         })
+  }
+
+  componentDidMount(){
+    this.initialPage()
+  }
+
+  componentDidUpdate(prevProps){
+    let pre_location = prevProps.location
+    let location = this.props.location
+    if(pre_location!==location){
+      this.initialPage()
+    }
   }
 
   render () {

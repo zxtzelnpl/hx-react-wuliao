@@ -23,7 +23,43 @@ class StockReportAnnual extends Component {
   }
 
   componentDidMount(){
+    this.initialPage()
+  }
+
+  loadPage(page) {
     this.setState({
+      article:null,
+      page,
+      isPageLoading: true
+    })
+    let start = (page - 1) * 12
+    let data_url = `${data_url_api}/${this.props.location}/${this.type}/${start}/${this.limit}`
+    fetch(data_url, {method: 'get', credentials: 'include'})
+        .then(res => res.json())
+        .then(datas => {
+          this.setState({
+            datas,
+            isPageLoading:false
+          })
+        })
+  }
+
+  changeArticle(article) {
+    this.setState(({datas})=>{
+      return {
+        article,
+        body:datas[article]
+      }
+    })
+  }
+
+  initialPage(){
+    this.setState({
+      article: 0,
+      page: 1,
+      count: 0,
+      datas: [],
+      body: null,
       isPageLoading:true
     })
     let start = this.state.page - 1
@@ -60,31 +96,12 @@ class StockReportAnnual extends Component {
         })
   }
 
-  loadPage(page) {
-    this.setState({
-      article:null,
-      page,
-      isPageLoading: true
-    })
-    let start = (page - 1) * 12
-    let data_url = `${data_url_api}/${this.props.location}/${this.type}/${start}/${this.limit}`
-    fetch(data_url, {method: 'get', credentials: 'include'})
-        .then(res => res.json())
-        .then(datas => {
-          this.setState({
-            datas,
-            isPageLoading:false
-          })
-        })
-  }
-
-  changeArticle(article) {
-    this.setState(({datas})=>{
-      return {
-        article,
-        body:datas[article]
-      }
-    })
+  componentDidUpdate(prevProps){
+    let pre_location = prevProps.location
+    let location = this.props.location
+    if(pre_location!==location){
+      this.initialPage()
+    }
   }
 
   render () {

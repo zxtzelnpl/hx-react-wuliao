@@ -17,11 +17,6 @@ class Experience extends Component {
       '股票周报',
       '股票年报',
       '媒体视频']
-    this.tabContents = [
-      <StockReportByWeek location={this.props.location}/>,
-      <StockReportAnnual location={this.props.location}/>,
-      <MediaVideo location={this.location}/>
-    ]
     this.state={
       selected:0
     }
@@ -34,6 +29,11 @@ class Experience extends Component {
   }
 
   render () {
+    let tabContents = [
+      <StockReportByWeek location={this.props.location}/>,
+      <StockReportAnnual location={this.props.location}/>,
+      <MediaVideo location={this.props.location}/>
+    ]
     return (
         <div className="container-experience">
           <div className="blank-h-20"/>
@@ -43,7 +43,7 @@ class Experience extends Component {
               selected = {this.state.selected}
           />
           <div className="blank-h-20"/>
-          {this.tabContents[this.state.selected]}
+          {tabContents[this.state.selected]}
         </div>
     )
   }
