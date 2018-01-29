@@ -1,6 +1,5 @@
 'use strict'
 
-import icon_tx from '../../static/img/icon_tx.png'
 import {trim} from '../../static/tools'
 
 import './ChatBox.less'
@@ -10,20 +9,9 @@ import JRoll from 'jroll'
 import moment from 'moment'
 import EmojiPicker from './EmojiPicker'
 import CaiTiaoPicker from './CaiTiaoPicker'
+import MessageItem from './MessageItem'
 import {upload_img} from '../../config/urls'
 
-const MessageItem = ({name, time, content}) => {
-  return (
-      <div className="messageItem">
-        <div className="head">
-          <img src={icon_tx}/>
-          <span className="name">{name}</span>
-          <span className="time">{time}</span>
-        </div>
-        <div className="content" dangerouslySetInnerHTML={{__html: content}}/>
-      </div>
-  )
-}
 
 class ChatBox extends Component {
   constructor (props) {
