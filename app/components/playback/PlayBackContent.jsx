@@ -19,7 +19,7 @@ class PlayBackContent extends Component {
     }
   }
 
-  componentDidMount(){
+  initialPage(){
     this.setState({
       isPageLoading:true
     })
@@ -69,6 +69,18 @@ class PlayBackContent extends Component {
             isPageLoading:false
           })
         })
+  }
+
+  componentDidMount(){
+    this.initialPage()
+  }
+
+  componentDidUpdate(prevProps){
+    let pre_location = prevProps.location
+    let location = this.props.location
+    if(pre_location!==location){
+      this.initialPage()
+    }
   }
 
   render () {

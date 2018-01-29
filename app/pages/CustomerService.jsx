@@ -14,10 +14,6 @@ class CustomerService extends Component {
     this.tabNames = [
       '持仓分析',
       '服务视频']
-    this.tabContents = [
-      <StockAnalyze location={this.props.location} />,
-      <ServiceVideo location={this.props.location} />
-    ]
     this.state={
       selected:1
     }
@@ -30,6 +26,10 @@ class CustomerService extends Component {
   }
 
   render () {
+    let tabContents = [
+      <StockAnalyze location={this.props.location} />,
+      <ServiceVideo location={this.props.location} />
+    ]
     return (
         <div className="container-customer-service">
           <div className="blank-h-20"/>
@@ -39,7 +39,7 @@ class CustomerService extends Component {
               selected = {this.state.selected}
           />
           <div className="blank-h-20"/>
-          {this.tabContents[this.state.selected]}
+          {tabContents[this.state.selected]}
         </div>
     )
   }
