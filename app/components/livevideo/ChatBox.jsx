@@ -119,7 +119,7 @@ class ChatBox extends Component {
       this.moveDirection = ''
     }
     else {
-      this.jroll.scrollTo(0, this.jroll.maxScrollY, 300)
+      // this.jroll.scrollTo(0, this.jroll.maxScrollY, 300)
     }
     // this.roundRedis()
     this.moveDirection = ''
