@@ -2,9 +2,9 @@
 
 import React from 'react'
 import {connect} from 'react-redux'
-import * as chatActionsFromOtherFile from "../actions/chat"
+import * as chatActionsFromOtherFile from "../../actions/chat"
 import {bindActionCreators} from "redux";
-import ChatBox from '../components/livevideo/ChatBox'
+import ChatBox from '../../components/livevideo/ChatBox'
 
 function mapStateToProps(state) {
   return {

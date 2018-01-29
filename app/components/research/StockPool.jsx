@@ -8,10 +8,11 @@ import StockItem from '../research/StockItem'
 import Loading  from '../Loading'
 
 class StockPool extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
   }
 
+  /**初选股票池sh**/
   primarySelectionStockChange(periods) {
     let location = this.props.location
         , type = 0
@@ -22,6 +23,7 @@ class StockPool extends Component {
     })
   }
 
+  /**精选股票池sh**/
   handPickChange(periods) {
     let location = this.props.location
         , type = 1
@@ -35,6 +37,15 @@ class StockPool extends Component {
   componentDidMount() {
     let location = this.props.location
     this.props.researchActions.fetchPeriodIfNeeded({location})
+  }
+
+  componentDidUpdate(prevProps,prevState){
+    let pre_location = prevProps.location
+    let location = this.props.location
+    if(pre_location!==location){
+      this.props.researchActions.fetchPeriodIfNeeded({location})
+    }
+
   }
 
   render() {
