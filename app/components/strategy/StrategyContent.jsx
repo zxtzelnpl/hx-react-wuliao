@@ -37,7 +37,6 @@ class StrategyContent extends Component {
         )
       }
     }
-    console.log(body)
     return (
         <div className="content">
           {content_html}

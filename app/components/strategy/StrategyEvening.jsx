@@ -23,7 +23,16 @@ class StrategyMorning extends Component {
   }
 
   componentDidMount() {
+    this.initialPage()
+  }
+
+  initialPage(){
     this.setState({
+      article: 0,
+      page: 1,
+      count: 0,
+      datas: [],
+      body: null,
       isPageLoading:true
     })
     let start = this.state.page - 1
@@ -47,12 +56,14 @@ class StrategyMorning extends Component {
           }
           else{
             this.setState({
+              body:{},
               isPageLoading:false
             })
           }
         })
         .catch(err=>{
           this.setState({
+            body:{},
             isPageLoading:false
           })
         })
@@ -83,6 +94,14 @@ class StrategyMorning extends Component {
         body:datas[article]
       }
     })
+  }
+
+  componentDidUpdate(prevProps){
+    let pre_location = prevProps.location
+    let location = this.props.location
+    if(pre_location!==location){
+      this.initialPage()
+    }
   }
 
   render() {

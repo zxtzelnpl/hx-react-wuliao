@@ -17,11 +17,6 @@ class Strategy extends Component {
       '股票早评',
       '盘中解读',
       '股票收评']
-    this.tabContents = [
-      <StrategyMorning location={this.props.location}/>,
-      <StrategyNoon location={this.props.location}/>,
-      <StrategyEvening location={this.props.location}/>
-    ]
     this.state={
       selected:0
     }
@@ -34,6 +29,11 @@ class Strategy extends Component {
   }
 
   render () {
+    let tabContents = [
+      <StrategyMorning location={this.props.location}/>,
+      <StrategyNoon location={this.props.location}/>,
+      <StrategyEvening location={this.props.location}/>
+    ]
     return (
         <div className="container-strategy">
           <div className="blank-h-20"/>
@@ -43,7 +43,7 @@ class Strategy extends Component {
               selected = {this.state.selected}
           />
           <div className="blank-h-20"/>
-          {this.tabContents[this.state.selected]}
+          {tabContents[this.state.selected]}
         </div>
     )
   }
