@@ -35,8 +35,11 @@ http://pxzbs.jyzqsz.com/outerapi/get_clsc/1/3
 
 # 营销素材
 1. 案例回顾数据接口*
+http://pxzbs.jyzqsz.com/outerapi/get_yxsc/1/1/0/20
 2. 推广物料数据接口*
+http://pxzbs.jyzqsz.com/outerapi/get_yxsc/1/2/0/20
 3. 视频节目数据接口*
+http://pxzbs.jyzqsz.com/outerapi/get_yxsc/1/3/0/20
 
 
 # 体验素材

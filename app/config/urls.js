@@ -23,8 +23,8 @@ export const api_strategy = '/outerapi/get_clsc'
 export const api_strategy_count = '/outerapi/get_clsc_count'
 
 /**营销素材**/
-export const api_marketing = ''
-export const api_marketing_couunt = '/outerapi/get_yxsc_count'
+export const api_marketing = '/outerapi/get_yxsc'
+export const api_marketing_count = '/outerapi/get_yxsc_count'
 
 /**体验素材**/
 export const api_experience = '/outerapi/get_tysc'

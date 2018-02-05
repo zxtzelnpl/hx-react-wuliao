@@ -8,6 +8,7 @@ import Head from '../components/Head'
 import CaseReview from '../components/marketing/CaseReview'
 import PromotionalMaterial from '../components/marketing/PromotionalMaterial'
 import VideoProgram from '../components/marketing/VideoProgram'
+import {connect} from "react-redux";
 
 class Marketing extends Component {
   constructor (props){
@@ -16,11 +17,6 @@ class Marketing extends Component {
       '案例回顾',
       '推广物料',
       '视频节目']
-    this.tabContents = [
-      <CaseReview />,
-      <PromotionalMaterial />,
-      <VideoProgram />
-    ]
     this.state={
       selected:0
     }
@@ -33,6 +29,11 @@ class Marketing extends Component {
   }
 
   render () {
+    let tabContents = [
+      <CaseReview location={this.props.location}/>,
+      <PromotionalMaterial location={this.props.location}/>,
+      <VideoProgram location={this.props.location}/>
+    ]
     return (
         <div className="container-marketing">
           <div className="blank-h-20" />
@@ -42,10 +43,20 @@ class Marketing extends Component {
               selected = {this.state.selected}
           />
           <div className="blank-h-20" />
-          {this.tabContents[this.state.selected]}
+          {tabContents[this.state.selected]}
         </div>
     )
   }
 }
 
-export default Marketing
+/**绑定Redux**/
+function mapStateToProps(state) {
+  return {
+    location:state.user.location
+  }
+}
+function mapDispatchToProps() {
+  return {
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Marketing)
