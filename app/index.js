@@ -9,8 +9,8 @@ import {Provider} from 'react-redux'
 import configureStore from './store/configureStore'
 import myStorage from './static/myStorage'
 import App from './App'
-import LoadingPage from './subpages/LoadingPage'
-import ErrorPage from './subpages/ErrorPage'
+import LoadingPage from './pages/LoadingPage'
+import ErrorPage from './pages/ErrorPage'
 
 const root = document.getElementById('root')
 

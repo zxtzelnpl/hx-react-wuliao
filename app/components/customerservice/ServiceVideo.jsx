@@ -34,7 +34,6 @@ class ServiceVideo extends Component {
     Promise
         .all([count_fetch, data_fetch])
         .then(([count, datas]) => {
-          console.log(datas)
           if(count>0&&datas.length>0){
             this.setState({
               count,
