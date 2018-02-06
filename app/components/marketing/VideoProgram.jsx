@@ -4,6 +4,7 @@ import './VideoProgram.less'
 
 import React, {Component} from 'react'
 import Pages from '../Pages'
+import Video from './Video'
 import {api_marketing as data_url_api, api_marketing_count as count_url_api} from "../../config/urls";
 
 class VideoProgram extends Component {
@@ -118,15 +119,7 @@ class VideoProgram extends Component {
               changeArticle={this.changeArticle.bind(this)}
           />
           <div className="blank-w-20"/>
-          <ul className="video-program-content">
-            <li>
-              <p>
-                互动：中天科技 信维通信 享通光电
-              </p>
-              <span className="download">下载</span>
-              <span className="play-video">观看视频</span>
-            </li>
-          </ul>
+          <Video body={this.state.body}/>
         </div>
     )
   }

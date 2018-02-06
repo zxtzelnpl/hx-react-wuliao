@@ -1,10 +1,20 @@
 @import '../../consts.less';
 .container-marketing{
+
+  .content-wrap{
+    width:905px;
+    min-height: 600px;
+    background:#fff;
+    position:relative;
+  }
   .content{
     box-sizing: border-box;
     width:905px;
+    min-height:600px;
     padding:10px 40px 10px;
-    background:#fff;
+
+  }
+  .hascontent{
     p{
       margin-bottom: 10px;
       height:40px;
@@ -22,6 +32,29 @@
       display:block;
       width:825px;
       height:auto;
+    }
+  }
+  .filepath{
+    .title{
+      margin-bottom: 10px;
+      height:40px;
+    }
+    .download{
+      float:right;
+      width:80px;
+      height:40px;
+      line-height:40px;
+      text-align: center;
+      color:#fff;
+      background:@red;
+    }
+    .fileshow{
+      display:block;
+      width:825px;
+      height:600px;
+    }
+    .pagination{
+      display:flex;
     }
   }
 }
