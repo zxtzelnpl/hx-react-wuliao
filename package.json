@@ -7,7 +7,8 @@
   "scripts": {
     "start": "set NODE_ENV=dev && webpack-dev-server --progress --color",
     "build": "rd/s/q build && set NODE_ENV=production&& webpack --config ./webpack.production.config.js --progress --colors",
-    "test": "rd/s/q test && set NODE_ENV=production&& webpack --config ./webpack.test.config.js --progress --colors"
+    "test": "rd/s/q test && set NODE_ENV=production&& webpack --config ./webpack.test.config.js --progress --colors",
+    "startInUb":"NODE_ENV=production webpack-dev-server --progress --color"
   },
   "dependencies": {
     "es6-promise": "^4.1.1",
