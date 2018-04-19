@@ -18,7 +18,7 @@ export default function research (state = initialState, action) {
       }
     case actionTypes.RECEIVED_PERIOD:
       return {
-        ...state,
+        data:[],
         period_0:action.period_0,
         period_1:action.period_1,
         isFetching: false

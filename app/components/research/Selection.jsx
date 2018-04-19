@@ -9,10 +9,12 @@ import {trimAll} from '../../static/tools'
 class Selection extends Component {
   constructor(props){
     super(props)
+    this.defaultSelectedShow = '请选择'
     this.state={
       show:false,
-      selected:this.props.datas[0].qishu
-    }
+      selected:undefined
+    };
+
   }
 
   onClick(){
@@ -24,13 +26,13 @@ class Selection extends Component {
   }
 
   onSelect(e){
-    let str = e.target.innerHTML
-    let value = str.split(' ')[1]
-    this.props.onSelect(value)
+    let str = e.target.innerHTML;
+    let value = str.split(' ')[1];
+    this.props.onSelect(value);
     this.setState({
       show:false,
       selected :value
-    })
+    });
   }
 
   _renderItem(data,index){
@@ -39,17 +41,20 @@ class Selection extends Component {
   }
 
   render () {
-    let {datas} = this.props
-    let {selected} = this.state
+    let {datas} = this.props;
     let _datas = datas.filter(data=>{
       return data.qishu!==this.state.selected
-    })
-    let items = _datas.map(this._renderItem.bind(this))
-    let selectClassName=this.state.show?'zxt-selection on':'zxt-selection'
+    });
+    let items = _datas.map(this._renderItem.bind(this));
+    let selectClassName=this.state.show?'zxt-selection on':'zxt-selection';
+
+    let {selected} = this.state;
+    let selectedShow = selected?`第${selected}期`:this.defaultSelectedShow;
+
     return (
         <div className={selectClassName}>
           <p className="zxt-selection-selected"
-             onClick={this.onClick.bind(this)}>第 {trimAll(selected)} 期</p>
+             onClick={this.onClick.bind(this)}>{selectedShow}</p>
           <ul
               className="zxt-selection-box"
               onClick={this.onSelect.bind(this)}

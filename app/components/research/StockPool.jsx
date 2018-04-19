@@ -3,8 +3,9 @@
 import './StockPool.less'
 
 import React, {Component} from 'react'
-import Selection from '../research/Selection'
-import StockItem from '../research/StockItem'
+import Selection from './Selection'
+import StockPoolNeck from './StockPoolNeck'
+import StockItem from './StockItem'
 import Loading  from '../Loading'
 
 class StockPool extends Component {
@@ -39,21 +40,19 @@ class StockPool extends Component {
     this.props.researchActions.fetchPeriodIfNeeded({location})
   }
 
-  componentDidUpdate(prevProps,prevState){
+  componentDidUpdate(prevProps){
     let pre_location = prevProps.location
     let location = this.props.location
     if(pre_location!==location){
       this.props.researchActions.fetchPeriodIfNeeded({location})
     }
-
   }
 
   render() {
     let {data, period_0, period_1, isFetching} = this.props.research
     let stocks_one = [],
         stocks_two = [],
-        stocks_three = [],
-        stocks_num = data.length
+        stocks_three = []
     data.forEach((stock, index) => {
       if (index % 3 === 0) {
         stocks_one.push(<StockItem stock={stock} key={stock.id}/>)
@@ -75,7 +74,7 @@ class StockPool extends Component {
                       datas={period_0}
                       onSelect={this.primarySelectionStockChange.bind(this)}
                   />
-                  : <div className="zxt-selection"/>
+                : <div className="zxt-no-data">暂时无数据</div>
               }
 
             </div>
@@ -86,15 +85,12 @@ class StockPool extends Component {
                       datas={period_1}
                       onSelect={this.handPickChange.bind(this)}
                   />
-                  : <div className="zxt-selection"/>
+                  : <div className="zxt-no-data">暂时无数据</div>
               }
             </div>
           </div>
           <div className="blank-h-20"/>
-          <div className="stock-pool-neck">
-            <p className="text">一共筛选出<span>{stocks_num}</span>个初选股票</p>
-            <p className="download">下载</p>
-          </div>
+          <StockPoolNeck data={data}/>
           <div className="blank-h-20"/>
           <div className="stock-pool-content">
             <div className="stock-pool-content-wrap">
